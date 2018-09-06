@@ -1,5 +1,7 @@
 <template lang="pug">
-  div.test >LKas dlaskjd laskdjalsdkj
+  div
+    h1 Pages
+    router-link(:to="{name: 'page.files'}") List files
 </template>
 
 <script>
