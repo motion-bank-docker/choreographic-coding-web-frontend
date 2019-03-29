@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = 'http://localhost:8081'
+const baseUrl = 'http://choreographiccoding.org'
 
 const getEntities = (type = 'node', params = {}, pager = undefined) => {
   return axios.get(urlWithPager(`${baseUrl}/${type}.json`, pager), {params: params})
