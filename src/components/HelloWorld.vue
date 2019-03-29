@@ -1,7 +1,11 @@
 <template lang="pug">
   div
     h1 Pages
-    router-link(:to="{name: 'page.files'}") List files
+    ul
+      li
+        router-link(:to="{name: 'page.nodes'}") List nodes
+      li
+        router-link(:to="{name: 'page.files'}") List files
 </template>
 
 <script>

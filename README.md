@@ -1,6 +1,11 @@
-# cclvue
+# CCL.org Vue.js test
 
-> A Vue.js project
+> A project to test access to Drupal from Vue.js
+
+## In Drupal you should
+
+- enable ```restws``` module, configre
+- enable ```cors``` module, configure and clear cache
 
 ## Build Setup
 
