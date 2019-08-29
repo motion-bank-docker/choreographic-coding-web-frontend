@@ -1,5 +1,7 @@
 import HelloWorld from './HelloWorld'
+import AFrameStage from './AFrameStage'
 
 export {
-  HelloWorld
+  HelloWorld,
+  AFrameStage
 }

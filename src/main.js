@@ -7,6 +7,14 @@ import App from './App'
 
 Vue.config.productionTip = false
 
+Vue.config.ignoredElements = [
+  'a-scene',
+  'a-entity',
+  'a-camera',
+  'a-box',
+  'a-plane'
+]
+
 Vue.use(Vuex)
 
 /* eslint-disable no-unused-vars */
