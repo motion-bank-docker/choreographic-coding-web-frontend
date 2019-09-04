@@ -1,20 +1,23 @@
 <template>
   <div id="app">
-    <header>
-      <h1>Choreographic Coding Labs</h1>
-      <nav class="menu">
-        <ul>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Labs</a></li>
-          <li><a href="#">Projects</a></li>
-          <li><a href="#">Participants</a></li>
-        </ul>
-      </nav>
-    </header>
-    <AFrameStage></AFrameStage>
-    <labList></labList>
-
-    <router-view/>
+      <header>
+        <h1>Choreographic Coding Labs</h1>
+        <nav class="menu">
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Labs</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Showcase</a></li>
+          </ul>
+        </nav>
+      </header>
+    <div class="left">
+      <AFrameStage></AFrameStage>
+    </div>
+    <div class="right">
+      <labList></labList>
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -40,7 +43,8 @@ export default {
     background #e7e7e7
 
   h1, h2, h3, h4, h5, h6
-    //font-family 'Quicksand', sans-serif
+    font-weight normal
+    font-family 'Quicksand', sans-serif
 
   a, a:hover, a:active, a:visited
     color inherit
@@ -58,4 +62,11 @@ export default {
 
   .menu>ul li + li
     margin-left: 10px
+
+  .left
+    top 0
+    position fixed
+  .right
+    width 55vw
+    padding-left 45vw
 </style>

@@ -19,6 +19,11 @@ const urlWithPager = function (url, pager) {
   return url
 }
 
+const getImgPath = async function (fileId) {
+  let imgJson = await axios.get(`${baseUrl}/api/files/${fileId}`)
+  return imgJson.files[0].file
+}
+
 export default {
   namespaced: true,
   state: {},
@@ -44,6 +49,8 @@ export default {
     getVocabulary: (commit, id) => getEntityByID('taxonomy_vocabulary', id),
 
     getFiles: (commit, pager) => axios.get(urlWithPager(`${baseUrl}/files/all.json`, pager)),
-    getFile: (commit, id) => axios.get(`${baseUrl}/files/${id}/file.json`)
+    getFile: (commit, id) => axios.get(`${baseUrl}/files/${id}/file.json`),
+
+    getImgPath: getImgPath
   }
 }
