@@ -45,19 +45,23 @@ export default {
       const plane = document.querySelector('#plane')
       this.$emit('update:scene', this.rotation)
       plane.setAttribute('animation', `property: rotation; to: 0 ${this.rotation} 0; loop: false; dur: 500`)
-      let path = document.querySelector('#track1')
+      this.newRandomPointAt()
+    },
+    newRandomPointAt: function (track = '#track1') {
+      let path = document.querySelector(track)
       let newPt = document.createElement('a-curve-point')
       newPt.setAttribute('position', `${Math.random() * 10 - 5} ${Math.random() * 10 - 5} ${Math.random() * 10 - 5}`)
       path.appendChild(newPt)
     }
   }
-
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
   #aframe-stage {
-    height: 80vh;
+    width: 40vw;
+    height: 100vh;
+    overflow: hidden;
   }
 </style>

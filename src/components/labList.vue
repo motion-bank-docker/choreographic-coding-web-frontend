@@ -16,12 +16,6 @@ export default {
   },
   async mounted () {
     const res = await this.$store.dispatch('drupal/getProjects')
-    const nodesList = res.data.list
-    const nodesListWithImg = nodesList.map(function (node) {
-      if (node.field_images_2.length >= 1) {
-        const resimg = await this.$store.dispatch('drupal/getProjects')
-      }
-    })
     this.nodes = res.data.list
   }
 }
