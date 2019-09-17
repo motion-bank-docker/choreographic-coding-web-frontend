@@ -19,9 +19,9 @@ const urlWithPager = function (url, pager) {
   return url
 }
 
-const getImgPath = async function (fileId) {
-  let imgJson = await axios.get(`${baseUrl}/api/files/${fileId}`)
-  return imgJson.files[0].file
+const getImgPath = function (fileId) {
+  let imgJson = axios.get(`${baseUrl}/api/files/${fileId}`)
+  return imgJson
 }
 
 export default {
@@ -51,6 +51,6 @@ export default {
     getFiles: (commit, pager) => axios.get(urlWithPager(`${baseUrl}/files/all.json`, pager)),
     getFile: (commit, id) => axios.get(`${baseUrl}/files/${id}/file.json`),
 
-    getImgPath: getImgPath
+    getImgPath: (commit, id) => getImgPath(id)
   }
 }
