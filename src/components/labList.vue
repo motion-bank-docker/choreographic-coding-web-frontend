@@ -9,8 +9,10 @@
 </template>
 
 <script>
+import HorizontalScroll from './horizontalScroll'
 export default {
   name: 'nodes',
+  components: {HorizontalScroll},
   data () {
     return {
       nodes: [],

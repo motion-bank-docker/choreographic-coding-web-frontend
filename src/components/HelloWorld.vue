@@ -1,16 +1,12 @@
 <template lang="pug">
-  div
-    h1 Pages
-    ul
-      li
-        router-link(:to="{name: 'page.nodes'}") List nodes
-      li
-        router-link(:to="{name: 'page.files'}") List files
+  <LabList/>
 </template>
 
 <script>
+import LabList from '../components/labList'
 export default {
   name: 'HelloWorld',
+  components: {LabList},
   data () {
     return {}
   }
@@ -19,6 +15,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="stylus">
-  .test
-    color green
+
 </style>

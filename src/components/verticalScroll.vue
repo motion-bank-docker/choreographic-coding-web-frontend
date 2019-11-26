@@ -1,0 +1,61 @@
+<template>
+  <div :style="{transform: `translate3d(0, ${offset}px, 0)`}"
+       class="verticalScroll">
+    <slot/>
+    <slot/>
+    <slot/>
+    <slot/>
+    <slot/>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'verticalScroll',
+  data () {
+    return {
+      height: 0,
+      scrollPosition: 0,
+      width: 0
+    }
+  },
+  props: {
+    factor: {
+      default: 0.25,
+      type: Number
+    }
+  },
+  mounted () {
+    const eventHandler = () => requestAnimationFrame(this.position)
+    window.addEventListener('resize', eventHandler)
+    window.addEventListener('scroll', eventHandler)
+
+    this.$on(`hook:destroyed`, () => {
+      window.removeEventListener('resize', eventHandler)
+      window.removeEventListener('scroll', eventHandler)
+    })
+  },
+  methods: {
+    position () {
+      const containerRect = this.$el.getBoundingClientRect()
+
+      this.height = containerRect.height
+      this.width = containerRect.width
+      this.scrollPosition = scrollY
+    }
+  },
+  computed: {
+    offset () {
+      return ((this.scrollPosition * this.factor) % this.height) - (this.height * 2)
+    }
+  }
+}
+</script>
+
+<style scoped>
+  .verticalScroll {
+    display: flex;
+    flex-direction: row;
+  }
+
+</style>

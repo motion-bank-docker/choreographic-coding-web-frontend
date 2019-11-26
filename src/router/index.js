@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import { HelloWorld } from '@/components'
-import { files, nodes } from '@/pages'
+import { files, nodes, showcase } from '@/pages'
 
 Vue.use(Router)
 
@@ -22,6 +22,16 @@ export default new Router({
       path: '/files',
       name: 'page.files',
       component: files
+    },
+    {
+      path: '/labs',
+      name: 'page.labs',
+      component: nodes
+    },
+    {
+      path: '/showcase',
+      name: 'page.showcase',
+      component: showcase
     }
   ]
 })
