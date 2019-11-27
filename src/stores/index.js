@@ -1,5 +1,7 @@
 import drupalStore from './drupalStore'
+import drawerStore from './drawerStore'
 
 export {
-  drupalStore
+  drupalStore,
+  drawerStore
 }

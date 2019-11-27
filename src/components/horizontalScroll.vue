@@ -48,7 +48,7 @@ export default {
   },
   computed: {
     offset () {
-      return window.innerWidth * this.data.scrollFactor
+      return window.innerWidth * (this.data.scrollFactor - 0.5)
     }
   }
 }

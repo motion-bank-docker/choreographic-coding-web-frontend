@@ -1,15 +1,15 @@
 <template lang="pug">
   div#app
     div#fixednav
-      div.leftMenu
-        div.leftDrawer.drawer
-          div.drawerBottom
-            h3 past
-          div.drawerTop
-            h3 human
+      transition(name="left-drawer")
+        div(v-if="drawerLeftDownOpen").drawerContent
+          drawer-past
+      drawer-handle(titleUp='past', titleDown="human", position="left")
+      div.leftMenu(v-on:click="closeAllDrawer")
         div.logobox
           vertical-scroll(:factor="-0.8")
-            h1.logo Choreographic Coding Labs
+            router-link(:to="{name: 'HelloWorld'}")
+              h1.logo Choreographic Coding Labs
         div.logobox
           vertical-scroll(:factor="0.8")
             router-link(:to="{name: 'HelloWorld'}")
@@ -28,23 +28,34 @@
               li
                 router-link(:to="{name: 'page.showcase'}") Showcase
       div.contentSpacer
-      div.drawer.rightDrawer
-        div.drawerBottom
-          h3 future
-        div.drawerTop
-          h3 machine
+      drawer-handle(titleUp='machine', titleDown="future", position="right")
     div.contentWrapper
       router-view
 </template>
 
 <script>
-import AFrameStage from './components/AFrameStage'
 import LabList from './components/labList'
 import verticalScroll from './components/verticalScroll'
 import horizontalScroll from './components/horizontalScroll'
+import DrawerPast from './components/DrawerPast'
+import drawerHandle from './components/drawerHandle'
 export default {
   name: 'App',
-  components: {AFrameStage, LabList, verticalScroll, horizontalScroll},
+  components: {LabList, verticalScroll, horizontalScroll, DrawerPast, drawerHandle},
+  data () {
+    return {
+    }
+  },
+  methods: {
+    closeAllDrawer: function () {
+      this.$store.commit('drawer/closeAllDrawer')
+    }
+  },
+  computed: {
+    drawerLeftDownOpen: function () {
+      return this.$store.getters['drawer/g_drawerLeftDownOpen']
+    }
+  },
   async mounted () {
   }
 }
@@ -86,6 +97,7 @@ export default {
   .leftMenu
     background #e7e7e7
     border-left black 2px solid
+    z-index 10
   .logobox
     overflow hidden
     white-space nowrap
@@ -102,27 +114,23 @@ export default {
     margin-top 1.5rem
   #fixednav a
     text-decoration none
-  .drawer
-    display flex
+  .drawerContent
     background #e7e7e7
-    justify-content space-between
-  .drawer>div
-    height 50vh
-  .drawerTop
-    text-align right
-    border-top black 2px solid
-  .drawer>div>h3
-    font-size 1.5rem
-    margin 1rem 0.6rem
+    writing-mode lr
+    transform rotate(180deg)
+    overflow-y: scroll
+    padding 3rem
+    max-width 30vw
   .contentSpacer
     flex-grow 10
-  .rightDrawer
-    align-self flex-end
-    border-right black 2px solid
-  .leftDrawer
-    border-left black 2px solid
+    transition flex-grow 500ms
   .contentWrapper
     width 70vw
     margin-right 5vw
     float right
+  //.left-drawer-enter-active, .left-drawer-leave-active
+    //transition all  .5s
+  //.left-drawer-enter, .left-drawer-leave-to
+    //opacity 0
+
 </style>

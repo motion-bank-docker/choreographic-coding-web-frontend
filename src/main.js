@@ -2,7 +2,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import router from './router'
-import { drupalStore } from './stores'
+import { drupalStore, drawerStore } from './stores'
 import App from './App'
 
 Vue.config.productionTip = false
@@ -20,7 +20,8 @@ Vue.use(Vuex)
 /* eslint-disable no-unused-vars */
 const store = new Vuex.Store({
   modules: {
-    drupal: drupalStore
+    drupal: drupalStore,
+    drawer: drawerStore
   }
 })
 
