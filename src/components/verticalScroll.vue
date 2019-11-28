@@ -1,13 +1,9 @@
 <template>
   <div :style="{transform: `translate3d(0, ${offset}px, 0)`}"
        class="verticalScroll">
-    <slot/>
-    <slot/>
-    <slot/>
-    <slot/>
-    <slot/>
-    <slot/>
-    <slot/>
+    <div v-for="item in duplicateHtml" v-bind:key="item">
+      <slot />
+    </div>
   </div>
 </template>
 
@@ -16,6 +12,7 @@ export default {
   name: 'verticalScroll',
   data () {
     return {
+      duplicateHtml: [0, 1, 2, 3, 4, 5, 6, 7],
       height: 0,
       scrollPosition: 0,
       width: 0

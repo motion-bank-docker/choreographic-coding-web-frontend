@@ -3,11 +3,11 @@
     div.logobox.logobox-left
       vertical-scroll(:factor="-0.8")
         router-link(:to="{name: 'HelloWorld'}")
-          h1.logo Choreographic Coding Labs
+          h1.logo Choreographic Coding Labs&nbsp;
     div.logobox.logobox-right
       vertical-scroll(:factor="0.8")
         router-link(:to="{name: 'HelloWorld'}")
-          h1.logo Coding Labs Choreographic
+          h1.logo Coding Labs Choreographic&nbsp;
     nav#menu
       vertical-scroll(:factor="-0.8")
         ul

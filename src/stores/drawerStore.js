@@ -2,6 +2,17 @@ function capitalizeFirstLetter (string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
+const names = {
+  right: {
+    up: 'Future',
+    down: 'Machine'
+  },
+  left: {
+    up: 'Human',
+    down: 'Past'
+  }
+}
+
 export default {
   namespaced: true,
   state: {
@@ -17,6 +28,11 @@ export default {
       const drawerName = payload.title.toString()
       const componentName = 'drawer' + capitalizeFirstLetter(drawerName)
       state.drawer[payload.position] = componentName
+    },
+    openBothDrawer (state, payload) {
+      console.log(payload)
+      state.drawer.left = names.left[payload.updown]
+      state.drawer.right = names.right[payload.updown]
     },
     closeAllDrawer (state) {
       state.drawer.left = false
