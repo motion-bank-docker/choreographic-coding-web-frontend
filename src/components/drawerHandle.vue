@@ -1,8 +1,8 @@
 <template lang="pug">
   div.drawer
-    div.drawerBottom(v-on:click='openDrawerUp')
+    div.drawerBottom(v-on:click='openDrawerDown')
       h3 {{titleUp}}
-    div.drawerTop(v-on:click='openDrawerDown')
+    div.drawerTop(v-on:click='openDrawerUp')
       h3 {{titleDown}}
 </template>
 
