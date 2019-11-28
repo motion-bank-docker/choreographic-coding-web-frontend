@@ -3,10 +3,10 @@
     div#fixednav
       transition(name="left-drawer", mode="out-in")
         component(v-bind:is="currentLeftComponent").drawerContent
-      drawer-handle(titleDown='past', titleUp="human", position="left")
+      drawer-handle(titleDown='past', titleUp="human", position="left").drawer-handle-left
       header-nav
       div.contentSpacer
-      drawer-handle(titleDown='machine', titleUp="future", position="right")
+      drawer-handle(titleDown='machine', titleUp="future", position="right").drawer-handle-right
       transition(name="left-drawer", mode="out-in")
         component(v-bind:is="currentRightComponent").drawerContent
     div.contentWrapper
@@ -58,6 +58,8 @@ export default {
 
 <style lang="stylus">
   @import "~@/assets/fonts/fonts.scss";
+  *, *::before,*::after
+    box-sizing: border-box
   :root, html
     font-size 18px
     font-family 'SpaceGrotesk', serif
@@ -75,8 +77,10 @@ export default {
     /*display flex*/
     /*flex-direction row*/
   #fixednav
-    height 100vh
-    width 100vw
+    top: 0
+    left: 0
+    height 100%
+    width 100%
     writing-mode: tb-rl
     transform: rotate(-180deg)
     position fixed
@@ -102,9 +106,7 @@ export default {
     width 55vw
     margin-right 15vw
     float right
-  /*.left-drawer-enter-active, .left-drawer-leave-active*/
-  /*  transition all  .5s*/
-  /*.left-drawer-enter, .left-drawer-leave-to*/
-  /*  opacity 0*/
-
+  @media (max-width: 800px)
+    .drawer-handle-right
+      order -2
 </style>

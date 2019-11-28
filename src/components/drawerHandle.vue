@@ -39,7 +39,7 @@ export default {
     outline black 2px solid
     z-index 100
   .drawer>*
-    height 50vh
+    flex 1
   .drawerTop
     text-align right
     border-top black 2px solid

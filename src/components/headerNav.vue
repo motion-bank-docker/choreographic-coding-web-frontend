@@ -1,10 +1,10 @@
 <template lang="pug">
   div.leftMenu(v-on:click="closeAllDrawer")
-    div.logobox
+    div.logobox.logobox-left
       vertical-scroll(:factor="-0.8")
         router-link(:to="{name: 'HelloWorld'}")
           h1.logo Choreographic Coding Labs
-    div.logobox
+    div.logobox.logobox-right
       vertical-scroll(:factor="0.8")
         router-link(:to="{name: 'HelloWorld'}")
           h1.logo Coding Labs Choreographic
@@ -45,14 +45,17 @@ export default {
     overflow hidden
     white-space nowrap
   .logo
-    font-size 7vw
+    font-size calc(15px + 6vw)
     margin 0
   nav ul
     display flex
-    font-size 3.6vw
+    font-size calc(15px + 3.4vw)
     margin 0
     padding 0
   nav ul>li
     list-style none
     margin-top 1.5rem
+  @media (max-width: 800px)
+    .logobox-left
+      display none
 </style>

@@ -6,6 +6,8 @@
     <slot/>
     <slot/>
     <slot/>
+    <slot/>
+    <slot/>
   </div>
 </template>
 
@@ -46,7 +48,7 @@ export default {
   },
   computed: {
     offset () {
-      return ((this.scrollPosition * this.factor) % this.height) - (this.height * 2)
+      return ((this.scrollPosition * this.factor) % this.height) - (this.height * 1.3)
     }
   }
 }
