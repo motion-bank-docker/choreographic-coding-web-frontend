@@ -11,6 +11,7 @@ const names = {
     up: 'Human',
     down: 'Past'
   }
+  // TODO: flip right side
 }
 
 export default {
@@ -31,8 +32,8 @@ export default {
     },
     openBothDrawer (state, payload) {
       console.log(payload)
-      state.drawer.left = names.left[payload.updown]
-      state.drawer.right = names.right[payload.updown]
+      state.drawer.left = 'drawer' + names.left[payload.updown]
+      state.drawer.right = 'drawer' + names.right[payload.updown]
     },
     closeAllDrawer (state) {
       state.drawer.left = false

@@ -106,6 +106,8 @@ export default {
     width 55vw
     margin-right 15vw
     float right
+  .drawer-handle-right
+    transform rotate(180deg)
   @media (max-width: 800px)
     .drawer-handle-right
       order -2
