@@ -1,13 +1,13 @@
 <template lang="pug">
   div#app
     div#fixednav
-      transition(name="left-drawer")
+      transition(name="left-drawer", mode="out-in")
         component(v-bind:is="currentLeftComponent").drawerContent
-      drawer-handle(titleUp='past', titleDown="human", position="left")
+      drawer-handle(titleDown='past', titleUp="human", position="left")
       header-nav
       div.contentSpacer
-      drawer-handle(titleUp='machine', titleDown="future", position="right")
-      transition(name="left-drawer")
+      drawer-handle(titleDown='machine', titleUp="future", position="right")
+      transition(name="left-drawer", mode="out-in")
         component(v-bind:is="currentRightComponent").drawerContent
     div.contentWrapper
       router-view
@@ -18,11 +18,14 @@ import LabList from './components/labList'
 import verticalScroll from './components/verticalScroll'
 import horizontalScroll from './components/horizontalScroll'
 import drawerPast from './components/drawerPast'
+import drawerFuture from './components/drawerFuture'
+import drawerHuman from './components/drawerHuman'
+import drawerMachine from './components/drawerMachine'
 import drawerHandle from './components/drawerHandle'
 import headerNav from './components/headerNav'
 export default {
   name: 'App',
-  components: {LabList, verticalScroll, horizontalScroll, drawerPast, drawerHandle, headerNav},
+  components: {LabList, verticalScroll, horizontalScroll, drawerPast, drawerFuture, drawerMachine, drawerHuman, drawerHandle, headerNav},
   data () {
     return {
     }
@@ -38,6 +41,9 @@ export default {
     },
     currentLeftComponent: function () {
       return this.$store.getters['drawer/g_currentLeftComponent']
+    },
+    currentComponent: function () {
+      return this.$store.getters['drawer/g_currentComponent']
     }
   },
   async mounted () {
@@ -96,9 +102,9 @@ export default {
     width 55vw
     margin-right 15vw
     float right
-  //.left-drawer-enter-active, .left-drawer-leave-active
-    //transition all  .5s
-  //.left-drawer-enter, .left-drawer-leave-to
-    //opacity 0
+  /*.left-drawer-enter-active, .left-drawer-leave-active*/
+  /*  transition all  .5s*/
+  /*.left-drawer-enter, .left-drawer-leave-to*/
+  /*  opacity 0*/
 
 </style>

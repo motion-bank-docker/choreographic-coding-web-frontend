@@ -1,60 +1,38 @@
+function capitalizeFirstLetter (string) {
+  return string.charAt(0).toUpperCase() + string.slice(1)
+}
 
 export default {
   namespaced: true,
   state: {
     drawer: {
-      left: {
-        up: false,
-        down: false
-      },
-      right: {
-        up: false,
-        down: false
-      }
+      right: String,
+      left: String
     }
   },
   mutations: {
     openDrawer (state, payload) {
-      state.drawer[payload.position][payload.upDown] = !state.drawer[payload.position][payload.upDown]
+      state.drawer.left = false
+      state.drawer.right = false
+      const drawerName = payload.title.toString()
+      const componentName = 'drawer' + capitalizeFirstLetter(drawerName)
+      state.drawer[payload.position] = componentName
     },
     closeAllDrawer (state) {
-      state.drawer.left.down = false
-      state.drawer.left.up = false
-      state.drawer.right.down = false
-      state.drawer.right.up = false
+      state.drawer.left = false
+      state.drawer.right = false
     }
 
   },
   getters: {
-    g_drawerLeftDownOpen (state) {
-      return state.drawer.left.down
-    },
-    g_drawerLeftUpOpen (state) {
-      return state.drawer.left.up
-    },
-    g_drawerRightDownOpen (state) {
-      return state.drawer.right.down
-    },
-    g_drawerRightUpOpen (state) {
-      return state.drawer.right.up
-    },
     g_currentRightComponent (state) {
-      if (state.drawer.right.down) {
-        return 'DrawerPast'
-      } else if (state.drawer.right.up) {
-        return 'drawerHuman'
-      } else {
-        return false
-      }
+      return state.drawer.right
     },
     g_currentLeftComponent (state) {
-      if (state.drawer.left.down) {
-        return 'DrawerPast'
-      } else if (state.drawer.left.up) {
-        return 'drawerHuman'
-      } else {
-        return false
-      }
+      return state.drawer.left
+    },
+    g_currentComponent (state) {
+      return state.currentComponent
     }
   },
   actions: {}
