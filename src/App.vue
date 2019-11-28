@@ -17,12 +17,12 @@
 import LabList from './components/labList'
 import verticalScroll from './components/verticalScroll'
 import horizontalScroll from './components/horizontalScroll'
-import DrawerPast from './components/DrawerPast'
+import drawerPast from './components/drawerPast'
 import drawerHandle from './components/drawerHandle'
 import headerNav from './components/headerNav'
 export default {
   name: 'App',
-  components: {LabList, verticalScroll, horizontalScroll, DrawerPast, drawerHandle, headerNav},
+  components: {LabList, verticalScroll, horizontalScroll, drawerPast, drawerHandle, headerNav},
   data () {
     return {
     }

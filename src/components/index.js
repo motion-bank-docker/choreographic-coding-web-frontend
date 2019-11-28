@@ -1,12 +1,12 @@
 import HelloWorld from './HelloWorld'
 import AFrameStage from './AFrameStage'
-import DrawerPast from './DrawerPast'
+import drawerPast from './drawerPast'
 import drawerHandle from './drawerHandle'
 import headerNav from './headerNav'
 export {
   HelloWorld,
   AFrameStage,
-  DrawerPast,
+  drawerPast,
   drawerHandle,
   headerNav
 }
