@@ -2,15 +2,13 @@
   div#app
     div#fixednav
       transition(name="left-drawer")
-        div(v-if="drawerLeftDownOpen").drawerContent
-          drawer-past
+        component(v-bind:is="currentLeftComponent").drawerContent
       drawer-handle(titleUp='past', titleDown="human", position="left")
       header-nav
       div.contentSpacer
       drawer-handle(titleUp='machine', titleDown="future", position="right")
       transition(name="left-drawer")
-        div(v-if="drawerLeftDownOpen").drawerContent
-          drawer-past
+        component(v-bind:is="currentRightComponent").drawerContent
     div.contentWrapper
       router-view
 </template>
@@ -35,8 +33,11 @@ export default {
     }
   },
   computed: {
-    drawerLeftDownOpen: function () {
-      return this.$store.getters['drawer/g_drawerLeftDownOpen']
+    currentRightComponent: function () {
+      return this.$store.getters['drawer/g_currentRightComponent']
+    },
+    currentLeftComponent: function () {
+      return this.$store.getters['drawer/g_currentLeftComponent']
     }
   },
   async mounted () {

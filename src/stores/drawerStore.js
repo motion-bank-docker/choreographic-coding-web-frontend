@@ -37,6 +37,24 @@ export default {
     },
     g_drawerRightUpOpen (state) {
       return state.drawer.right.up
+    },
+    g_currentRightComponent (state) {
+      if (state.drawer.right.down) {
+        return 'DrawerPast'
+      } else if (state.drawer.right.up) {
+        return 'drawerHuman'
+      } else {
+        return false
+      }
+    },
+    g_currentLeftComponent (state) {
+      if (state.drawer.left.down) {
+        return 'DrawerPast'
+      } else if (state.drawer.left.up) {
+        return 'drawerHuman'
+      } else {
+        return false
+      }
     }
   },
   actions: {}
