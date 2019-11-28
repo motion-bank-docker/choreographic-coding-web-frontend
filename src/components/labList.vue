@@ -2,7 +2,8 @@
     #labs
       h1 All Labs
       template(v-for="node in nodes")
-        h3 {{node.title}}
+        router-link(:to="{name: 'page.lab', params: { nid: node.nid }}")
+          h3 {{node.title}}
         p(v-html="node.body.value")
         div(v-for="img in node.field_images_2")
           img(v-if="img.file.id in imgs" :src="imgs[img.file.id].path")
@@ -25,6 +26,7 @@ export default {
     let imgsMap = {}
     this.nodes.forEach(n => {
       n.field_images_2.forEach(async i => {
+        console.log(i.file.id)
         const id = i.file.id
         const response = await this.$store.dispatch('drupal/getImgPath', id)
         const file = response.data.files[0].file

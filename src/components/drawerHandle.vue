@@ -44,6 +44,6 @@ export default {
     text-align right
     border-top black 2px solid
   .drawer h3
-    font-size 1.5rem
+    font-size 2vw
     margin 1rem 0.6rem
 </style>

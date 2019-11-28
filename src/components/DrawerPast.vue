@@ -2,8 +2,10 @@
     #drawerPast
       h2 All Labs
       template(v-for="node in nodes")
-        h3 {{node.title}}
-        p(v-html="node.body.value")
+        router-link(:to="{name: 'page.lab', params: { nid: node.nid }}")
+          h3 {{node.title}}
+        div.imgPlaceholder
+        //p(v-html="node.body.value")
         //div(v-for="img in node.field_images_2")
           img(v-if="img.file.id in imgs" :src="imgs[img.file.id].path")
 </template>
@@ -38,9 +40,21 @@ export default {
       let file = resImg.data.files[0].file
       console.log(file.path)
       return file
+    },
+    closeAllDrawer: function () {
+      this.$store.commit('drawer/closeAllDrawer')
+    },
+    getTime: function (unixTime) {
+      let date = new Date(unixTime * 1000)
+      return date.toLocaleString('de-DE', { timeZone: 'UTC' })
     }
   }
 }
 </script>
 
-<style scoped lang="stylus"></style>
+<style scoped lang="stylus">
+  .imgPlaceholder
+    width 100%
+    height 4rem
+    background white
+</style>
