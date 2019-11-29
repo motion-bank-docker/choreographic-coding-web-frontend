@@ -28,16 +28,21 @@ export default {
     const eventHandler = () => requestAnimationFrame(this.position)
     window.addEventListener('resize', eventHandler)
     window.addEventListener('scroll', eventHandler)
+    window.addEventListener('resize', this.calculateHeight)
+    this.calculateHeight()
 
-    this.$on(`hook:destroyed`, () => {
+    this.$on(`hook:beforeDestroy`, () => {
       window.removeEventListener('resize', eventHandler)
       window.removeEventListener('scroll', eventHandler)
+      window.addEventListener('resize', this.calculateHeight)
     })
   },
   methods: {
     position: function () {
-      this.height = this.$el.children[0].getBoundingClientRect().height
       this.scrollPosition = scrollY
+    },
+    calculateHeight: function () {
+      this.height = this.$el.children[0].getBoundingClientRect().height
     }
   },
   computed: {
