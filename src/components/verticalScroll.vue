@@ -29,7 +29,6 @@ export default {
     window.addEventListener('resize', eventHandler)
     window.addEventListener('scroll', eventHandler)
     window.addEventListener('resize', this.calculateHeight)
-    this.calculateHeight()
 
     this.$on(`hook:beforeDestroy`, () => {
       window.removeEventListener('resize', eventHandler)
@@ -40,14 +39,12 @@ export default {
   methods: {
     position: function () {
       this.scrollPosition = scrollY
-    },
-    calculateHeight: function () {
       this.height = this.$el.children[0].getBoundingClientRect().height
     }
   },
   computed: {
     offset () {
-      return ((this.scrollPosition * this.factor) % this.height) - (this.height * 1.3)
+      return (this.scrollPosition * this.factor) % this.height - this.height
     }
   }
 }
