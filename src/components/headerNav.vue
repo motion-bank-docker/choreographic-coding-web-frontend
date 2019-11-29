@@ -56,6 +56,10 @@ export default {
     list-style none
     margin-top 1.5rem
   @media (max-width: 800px)
+    .logo
+      font-size calc(15px + 2vw)
+    nav ul
+      font-size calc(15px + 2vw)
     .logobox-left
       display none
 </style>
