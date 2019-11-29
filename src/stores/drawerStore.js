@@ -32,8 +32,8 @@ export default {
     },
     openBothDrawer (state, payload) {
       console.log(payload)
-      state.drawer.left = 'drawer' + names.left[payload.updown]
-      state.drawer.right = 'drawer' + names.right[payload.updown]
+      state.drawer.left = 'drawer' + names.left[payload.upDown]
+      state.drawer.right = 'drawer' + names.right[payload.upDown]
     },
     closeAllDrawer (state) {
       state.drawer.left = false

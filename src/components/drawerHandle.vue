@@ -1,8 +1,8 @@
 <template lang="pug">
   div.drawer
-    div.drawerBottom(v-on:click='openDrawer("down", $event)')
+    div.drawerBottom(v-on:click='openDrawer({title: titleDown, upDown: "down"}, $event)')
       h3 {{titleDown}}
-    div.drawerTop(v-on:click='openDrawer("up", $event)')
+    div.drawerTop(v-on:click='openDrawer({title: titleUp, upDown: "up"}, $event)')
       h3 {{titleUp}}
 </template>
 
@@ -15,16 +15,11 @@ export default {
     position: String
   },
   methods: {
-    openDrawer: function (updown, event) {
+    openDrawer: function ({title, upDown}, event) {
       this.$store.commit('drawer/openBothDrawer', {
         position: this.position,
-        updown
-      })
-    },
-    openDrawerUp: function (event) {
-      this.$store.commit('drawer/openDrawer', {
-        position: this.position,
-        upDown: 'up'
+        title,
+        upDown
       })
     }
   }
