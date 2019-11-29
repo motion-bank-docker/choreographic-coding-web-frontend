@@ -12,7 +12,7 @@ export default {
   name: 'verticalScroll',
   data () {
     return {
-      duplicateHtml: [0, 1, 2, 3, 4, 5, 6, 7],
+      duplicateHtml: [0, 1, 2, 3],
       height: 0,
       scrollPosition: 0,
       width: 0
@@ -35,11 +35,8 @@ export default {
     })
   },
   methods: {
-    position () {
-      const containerRect = this.$el.getBoundingClientRect()
-
-      this.height = containerRect.height
-      this.width = containerRect.width
+    position: function () {
+      this.height = this.$el.children[0].getBoundingClientRect().height
       this.scrollPosition = scrollY
     }
   },
