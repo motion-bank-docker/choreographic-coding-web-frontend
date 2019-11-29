@@ -110,13 +110,23 @@ export default {
     transform rotate(180deg)
   .drawerIsOpen
     box-shadow inset 0 0 10px #000000
+  iframe
+    max-width 100%
   @media (max-width: 800px)
     #fixednav
-      writing-mode unset
-      transform unset
-      height 80vh
-      position relative
+      width unset
+      flex-wrap wrap
+      flex-direction row
+    .drawer
+      height 50%
+    .leftMenu, .contentSpacer
+      height 100%
     .drawer-handle-right
       order -2
       transform unset
+    nav
+      height 100%
+      overflow hidden
+    .drawerContent
+      order -5
 </style>
