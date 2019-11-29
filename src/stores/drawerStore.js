@@ -18,8 +18,8 @@ export default {
   namespaced: true,
   state: {
     drawer: {
-      right: String,
-      left: String
+      right: false,
+      left: false
     }
   },
   mutations: {
@@ -47,9 +47,6 @@ export default {
     },
     g_currentLeftComponent (state) {
       return state.drawer.left
-    },
-    g_currentComponent (state) {
-      return state.currentComponent
     }
   },
   actions: {}

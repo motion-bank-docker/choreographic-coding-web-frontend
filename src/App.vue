@@ -5,11 +5,11 @@
         component(v-bind:is="currentLeftComponent").drawerContent
       drawer-handle(titleDown='past', titleUp="human", position="left").drawer-handle-left
       header-nav
-      div.contentSpacer
+      div(:class="drawerIsOpen").contentSpacer
       drawer-handle(titleDown='machine', titleUp="future", position="right").drawer-handle-right
       transition(name="left-drawer", mode="out-in")
         component(v-bind:is="currentRightComponent").drawerContent
-    div.contentWrapper
+    div(v-on:click="closeAllDrawer").contentWrapper
       router-view
 </template>
 
@@ -42,8 +42,8 @@ export default {
     currentLeftComponent: function () {
       return this.$store.getters['drawer/g_currentLeftComponent']
     },
-    currentComponent: function () {
-      return this.$store.getters['drawer/g_currentComponent']
+    drawerIsOpen: function () {
+      return (this.currentRightComponent || this.currentLeftComponent) ? 'drawerIsOpen' : false
     }
   },
   async mounted () {
@@ -108,6 +108,8 @@ export default {
     float right
   .drawer-handle-right
     transform rotate(180deg)
+  .drawerIsOpen
+    box-shadow inset 0 0 10px #000000
   @media (max-width: 800px)
     #fixednav
       writing-mode unset
