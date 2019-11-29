@@ -109,6 +109,12 @@ export default {
   .drawer-handle-right
     transform rotate(180deg)
   @media (max-width: 800px)
+    #fixednav
+      writing-mode unset
+      transform unset
+      height 80vh
+      position relative
     .drawer-handle-right
       order -2
+      transform unset
 </style>

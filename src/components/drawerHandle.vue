@@ -38,11 +38,12 @@ export default {
     justify-content space-between
     outline black 2px solid
     z-index 100
-  .drawer>*
+  .drawer>div
     flex 1
+    outline black 1px solid
   .drawerTop
     text-align right
-    border-top black 2px solid
+    //border-top black 2px solid
   .drawer h3
     font-size 2vw
     margin 1rem 0.6rem
