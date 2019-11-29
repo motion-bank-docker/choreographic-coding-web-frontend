@@ -47,4 +47,11 @@ export default {
     .drawer h3
       font-size calc(10px + 1.3vw)
       margin 1rem 0.4rem
+  @media (max-height: 500px)
+    .drawer h3
+      font-size calc(10px + 1vw)
+      margin 0.5rem 0.4rem
+  @media (max-height: 350px)
+    .drawer
+      height 100%
 </style>
