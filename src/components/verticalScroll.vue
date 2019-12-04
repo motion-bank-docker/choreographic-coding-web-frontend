@@ -2,7 +2,7 @@
   <div :style="{transform: `translate3d(0, ${offset}px, 0)`}"
        class="verticalScroll">
     <div v-for="item in duplicateHtml" v-bind:key="item">
-      <slot />
+      <slot v-bind:item="item" />
     </div>
   </div>
 </template>
