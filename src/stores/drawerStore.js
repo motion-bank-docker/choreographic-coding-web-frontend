@@ -17,6 +17,7 @@ const names = {
 export default {
   namespaced: true,
   state: {
+    lastClick: false,
     drawer: {
       right: false,
       left: false
@@ -32,6 +33,7 @@ export default {
     },
     openBothDrawer (state, payload) {
       console.log(payload)
+      state.lastClick = 'drawer' + names[payload.position][payload.upDown]
       state.drawer.left = 'drawer' + names.left[payload.upDown]
       state.drawer.right = 'drawer' + names.right[payload.upDown]
     },
@@ -47,6 +49,9 @@ export default {
     },
     g_currentLeftComponent (state) {
       return state.drawer.left
+    },
+    g_lastClicked (state) {
+      return state.lastClick
     }
   },
   actions: {}

@@ -37,10 +37,16 @@ export default {
   },
   computed: {
     currentRightComponent: function () {
-      return this.$store.getters['drawer/g_currentRightComponent']
+      if (window.innerWidth > 800) {
+        return this.$store.getters['drawer/g_currentRightComponent']
+      }
     },
     currentLeftComponent: function () {
-      return this.$store.getters['drawer/g_currentLeftComponent']
+      if (window.innerWidth > 800) {
+        return this.$store.getters['drawer/g_currentLeftComponent']
+      } else {
+        return this.$store.getters['drawer/g_lastClicked']
+      }
     },
     drawerIsOpen: function () {
       return (this.currentRightComponent || this.currentLeftComponent) ? 'drawerIsOpen' : false
@@ -128,5 +134,6 @@ export default {
       height 100%
       overflow hidden
     .drawerContent
+      max-width 80vw
       order -5
 </style>
