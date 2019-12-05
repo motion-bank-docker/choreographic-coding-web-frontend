@@ -16,7 +16,7 @@
           li
             router-link(:to="{name: 'page.files'}") About
           li
-            router-link(:to="{name: 'page.files'}") Calls
+            router-link(:to="{name: 'page.calls'}") Calls
           li
             router-link(:to="{name: 'page.files'}") FAQ
           li
