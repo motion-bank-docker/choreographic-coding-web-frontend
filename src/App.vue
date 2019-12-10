@@ -1,5 +1,6 @@
 <template lang="pug">
   div#app
+    div#fullgradient
     div#fixednav
       transition(name="left-drawer", mode="out-in")
         component(v-bind:is="currentLeftComponent").drawerContent
@@ -81,6 +82,13 @@ export default {
   a, a:hover, a:active, a:visited
     color inherit
     text-decoration underline
+  #fullgradient
+    position fixed
+    width 100%
+    height 100%
+    z-index 200
+    pointer-events none
+    background: linear-gradient(to bottom, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 13%,rgba(91,41,255,0) 86%,rgba(59,0,255,0.4) 100%)
   #app
     /*display flex*/
     /*flex-direction row*/
