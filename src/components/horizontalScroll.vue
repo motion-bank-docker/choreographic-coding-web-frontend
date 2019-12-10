@@ -17,6 +17,10 @@ export default {
     paused: {
       type: Boolean,
       default: false
+    },
+    pauseOnHover: {
+      type: Boolean,
+      default: true
     }
   },
   // methods: {
@@ -24,7 +28,7 @@ export default {
   //     this.props.paused = true
   //   }
   // },
-  render (h, { $style, props: { duration, repeat, paused }, children, data: { staticClass, key } }) {
+  render (h, { $style, props: { duration, repeat, paused, pauseOnHover }, children, data: { staticClass, key } }) {
     const text = h('div', {
       class: $style.text,
       style: {
@@ -33,14 +37,17 @@ export default {
     }, children)
     return h('div', {
       key,
-      // on: {
-      //   mouseover: function (event) {
-      //     paused = true
-      //   }
-      // },
+      on: {
+        mouseover: function (event) {
+          console.log(staticClass)
+        }
+      },
       class: [
         staticClass,
-        $style.wrap
+        $style.wrap,
+        pauseOnHover
+          ? $style.pauseOnHover
+          : undefined
       ]
     }, [
       h('div', {
@@ -58,7 +65,11 @@ export default {
 
 <style module>
   .wrap {
-    overflow: hidden;
+    /*overflow: hidden;*/
+    white-space: nowrap;
+  }
+  .pauseOnHover:hover .text {
+    animation-play-state: paused
   }
   .content {
     width: 100000px;
@@ -69,6 +80,7 @@ export default {
     animation-iteration-count: infinite;
     float: left;
     padding-right: 80px;
+    display: inline-block;
   }
   .paused .text {
     animation-play-state: paused
