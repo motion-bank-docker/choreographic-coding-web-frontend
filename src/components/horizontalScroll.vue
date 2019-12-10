@@ -1,56 +1,72 @@
-<template>
-  <div class="horizontalScroll">
-    <div class="horizontalScrollChild">
-      <slot/>
-      <slot/>
-      <slot/>
-    </div>
-  </div>
-</template>
-
 <script>
 export default {
   name: 'horizontalScroll',
-  data () {
-    return {
-    }
-  },
+  functional: true,
   props: {
-    factor: {
-      default: 0.25,
-      type: Number
+    duration: {
+      type: Number,
+      default: 15
+    },
+    repeat: {
+      type: Number,
+      default: 2,
+      validator: function (val) {
+        return val >= 2
+      }
+    },
+    paused: {
+      type: Boolean,
+      default: false
     }
   },
-  methods: {
-  },
-  computed: {
+  render (h, { $style, props: { duration, repeat, paused }, children, data: { staticClass, key } }) {
+    const text = h('div', {
+      class: $style.text,
+      style: {
+        animationDuration: `${duration}s`
+      }
+    }, children)
+
+    return h('div', {
+      key,
+      class: [
+        staticClass,
+        $style.wrap
+      ]
+    }, [
+      h('div', {
+        class: [
+          paused
+            ? $style.paused
+            : undefined,
+          $style.content
+        ]
+      }, Array(repeat).fill(text))
+    ])
   }
 }
 </script>
 
-<style scoped>
-  .horizontalScroll {
-    max-width: 100vw;  /* iOS braucht das*/
-    white-space: nowrap;
-    /*overflow: hidden;*/
-    z-index: -10;
+<style module>
+  .wrap {
+    overflow: hidden;
   }
-  .horizontalScrollChild {
-    animation: marquee 10s linear infinite;
+  .content {
+    width: 100000px;
   }
-  .horizontalScrollChild:hover {
+  .text {
+    animation-name: animation;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    float: left;
+    padding-right: 80px;
+  }
+  .paused .text {
     animation-play-state: paused
   }
-  a, h3 {
-    text-decoration: none;
-  }
-  .horizontalScrollChild>* {
-    display: inline-block;
-    padding-right: 10vw;
-  }
-  @keyframes marquee {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
+  @keyframes animation {
+    0% { transform:translateX(0); }
+    100% { transform:translateX(-100%); }
   }
 </style>
 
