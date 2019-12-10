@@ -3,9 +3,9 @@
       h1 All Labs
       template(v-for="node in nodes")
         div
-          HorizontalScroll(:repeat="6" :duration="(Math.random() + 1) * 2" :reverseDirection="Math.random() < 0.5" )
+          HorizontalScroll(:repeat="12" :duration="(Math.random() + 1) * 2" :reverseDirection="Math.random() < 0.5" )
             h3 {{node.year}}
-        HorizontalScroll(:repeat="6" :duration="(Math.random() + 1) * 2" :reverseDirection="Math.random() < 0.5" )
+        HorizontalScroll(:repeat="8" :duration="(Math.random() + 1) * 2" :reverseDirection="Math.random() < 0.5" )
           router-link(:to="{name: 'page.lab', params: { nid: node.nid }}")
             h3 {{node.city}}
         p(v-html="node.body.value")
@@ -58,4 +58,7 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus"></style>
+<style scoped lang="stylus">
+  h3
+    margin 0.2rem 0
+</style>

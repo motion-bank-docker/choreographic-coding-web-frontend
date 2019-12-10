@@ -75,12 +75,12 @@ export default {
 
 <style module>
   .wrap {
-    /*overflow: hidden;*/
-    white-space: nowrap;
-    display: inline-block;
-    /*width: 100vw;*/
-    /*position: relative;*/
-    /*left: calc(-50vw + 50%);*/
+    overflow: auto;
+    /*white-space: nowrap;*/
+    /*display: inline-block;*/
+    width: 100vw;
+    position: relative;
+    left: calc(-50vw + 50%);
   }
   .pauseOnHover:hover .text {
     animation-play-state: paused
