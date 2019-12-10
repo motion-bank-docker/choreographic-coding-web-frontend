@@ -2,9 +2,12 @@
     #labs
       h1 All Labs
       template(v-for="node in nodes")
-        HorizontalScroll(:repeat="10" :duration="(Math.random() + 1) * 2" :reverseDirection="Math.random() < 0.5" )
+        div
+          HorizontalScroll(:repeat="6" :duration="(Math.random() + 1) * 2" :reverseDirection="Math.random() < 0.5" )
+            h3 {{node.year}}
+        HorizontalScroll(:repeat="6" :duration="(Math.random() + 1) * 2" :reverseDirection="Math.random() < 0.5" )
           router-link(:to="{name: 'page.lab', params: { nid: node.nid }}")
-            h3 {{node.title}}
+            h3 {{node.city}}
         p(v-html="node.body.value")
         div(v-for="img in node.field_images_2")
           img(v-if="img.file.id in imgs" :src="imgs[img.file.id].path")
@@ -23,7 +26,14 @@ export default {
   },
   async mounted () {
     const res = await this.$store.dispatch('drupal/getLabs')
-    this.nodes = res.data.list
+    // this.nodes = res.data.list
+    this.nodes = res.data.list.map(node => {
+      return {
+        ...node,
+        year: node.title.match(/\d{4}/gm)[0],
+        city: node.title.replace(/.\d{4}/gm, '')
+      }
+    })
     let imgsMap = {}
     this.nodes.forEach(n => {
       n.field_images_2.forEach(async i => {

@@ -3,7 +3,9 @@
       div(v-if="loading")
         p loading…
       div(v-if="lab")
-        h2 {{lab.title}}
+        div.headerImg
+        horizontal-scroll(:repeat="6")
+          h2 {{lab.title}}
         p(v-html="lab.body.value")
         p {{getTime(lab.field_date.value)}}
         p {{getTime(lab.field_date.value2)}}
@@ -20,8 +22,10 @@
 </template>
 
 <script>
+import horizontalScroll from '../components/horizontalScroll'
 export default {
   name: 'lab',
+  components: { horizontalScroll },
   data () {
     return {
       loading: true,
@@ -55,6 +59,9 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+  .headerImg
+    height 40vh
+    background lightgray
   img
     width 100%
 </style>
