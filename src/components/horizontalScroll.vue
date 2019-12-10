@@ -14,6 +14,10 @@ export default {
         return val >= 2
       }
     },
+    paddingRight: {
+      type: Number,
+      default: 80
+    },
     paused: {
       type: Boolean,
       default: false
@@ -28,20 +32,21 @@ export default {
   //     this.props.paused = true
   //   }
   // },
-  render (h, { $style, props: { duration, repeat, paused, pauseOnHover }, children, data: { staticClass, key } }) {
+  render (h, { $style, props: { duration, repeat, paused, pauseOnHover, paddingRight }, children, data: { staticClass, key } }) {
     const text = h('div', {
       class: $style.text,
       style: {
-        animationDuration: `${duration}s`
+        animationDuration: `${duration}s`,
+        paddingRight: `${paddingRight}px`
       }
     }, children)
     return h('div', {
       key,
-      on: {
-        mouseover: function (event) {
-          console.log(staticClass)
-        }
-      },
+      // on: {
+      //   mouseover: function (event) {
+      //     console.log(staticClass)
+      //   }
+      // },
       class: [
         staticClass,
         $style.wrap,
@@ -79,7 +84,6 @@ export default {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     float: left;
-    padding-right: 80px;
     display: inline-block;
   }
   .paused .text {
