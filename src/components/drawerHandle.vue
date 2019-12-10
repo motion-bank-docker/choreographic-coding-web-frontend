@@ -1,8 +1,10 @@
 <template lang="pug">
   div.drawer
-    div.drawerBottom(v-on:click='openDrawer({title: titleDown, upDown: "down"}, $event)')
+    div.drawerBottom(v-on:click='openDrawer({title: titleDown, upDown: "down"}, $event)'
+                      :class="isActive(titleDown)")
       h3 {{titleDown}}
-    div.drawerTop(v-on:click='openDrawer({title: titleUp, upDown: "up"}, $event)')
+    div.drawerTop(v-on:click='openDrawer({title: titleUp, upDown: "up"}, $event)'
+                      :class="isActive(titleUp)")
       h3 {{titleUp}}
 </template>
 
@@ -14,7 +16,15 @@ export default {
     titleDown: String,
     position: String
   },
+  computed: {
+  },
   methods: {
+    isActive: function (title) {
+      let active = this.$store.getters['drawer/g_active']
+      return {
+        drawerActive: title === active
+      }
+    },
     openDrawer: function ({title, upDown}, event) {
       this.$store.commit('drawer/openBothDrawer', {
         position: this.position,
@@ -41,6 +51,8 @@ export default {
   .drawer h3
     font-size calc(10px + 1.5vw)
     margin 1rem 0.6rem
+  .drawerActive
+    text-shadow yellow 2px 0px 5px
   @media (max-width: 800px)
     .drawerBottom, .drawerTop
       text-align center

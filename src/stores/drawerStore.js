@@ -17,6 +17,7 @@ const names = {
 export default {
   namespaced: true,
   state: {
+    active: false,
     lastClick: false,
     drawer: {
       right: false,
@@ -33,11 +34,13 @@ export default {
     },
     openBothDrawer (state, payload) {
       console.log(payload)
+      state.active = payload.title
       state.lastClick = 'drawer' + names[payload.position][payload.upDown]
       state.drawer.left = 'drawer' + names.left[payload.upDown]
       state.drawer.right = 'drawer' + names.right[payload.upDown]
     },
     closeAllDrawer (state) {
+      state.active = false
       state.drawer.left = false
       state.drawer.right = false
     }
@@ -52,6 +55,9 @@ export default {
     },
     g_lastClicked (state) {
       return state.lastClick
+    },
+    g_active (state) {
+      return state.active
     }
   },
   actions: {}
