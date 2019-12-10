@@ -2,7 +2,7 @@
     #labs
       h1 All Labs
       template(v-for="node in nodes")
-        HorizontalScroll(:repeat="10" :duration="4")
+        HorizontalScroll(:repeat="10" :duration="(Math.random() + 1) * 2" :reverseDirection="Math.random() < 0.5" )
           router-link(:to="{name: 'page.lab', params: { nid: node.nid }}")
             h3 {{node.title}}
         p(v-html="node.body.value")
