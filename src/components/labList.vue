@@ -2,8 +2,9 @@
     #labs
       h1 All Labs
       template(v-for="node in nodes")
-        router-link(:to="{name: 'page.lab', params: { nid: node.nid }}")
-          h3 {{node.title}}
+        HorizontalScroll
+          router-link(:to="{name: 'page.lab', params: { nid: node.nid }}")
+            h3 {{node.title}}
         p(v-html="node.body.value")
         div(v-for="img in node.field_images_2")
           img(v-if="img.file.id in imgs" :src="imgs[img.file.id].path")

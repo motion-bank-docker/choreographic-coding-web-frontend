@@ -1,7 +1,10 @@
 <template>
-  <div :style="{transform: `translate3d(${offset}px, 0, 0)`}"
-       class="horizontalScroll">
-    <slot/>
+  <div class="horizontalScroll">
+    <div class="horizontalScrollChild">
+      <slot/>
+      <slot/>
+      <slot/>
+    </div>
   </div>
 </template>
 
@@ -10,11 +13,6 @@ export default {
   name: 'horizontalScroll',
   data () {
     return {
-      data: {
-        height: 0,
-        scrollFactor: 0,
-        width: 0
-      }
     }
   },
   props: {
@@ -23,39 +21,37 @@ export default {
       type: Number
     }
   },
-  mounted () {
-    const eventHandler = () => requestAnimationFrame(this.calcScroll)
-    window.addEventListener('resize', eventHandler)
-    window.addEventListener('scroll', eventHandler)
-
-    this.$on(`hook:destroyed`, () => {
-      window.removeEventListener('resize', eventHandler)
-      window.removeEventListener('scroll', eventHandler)
-    })
-  },
   methods: {
-    calcScroll () {
-      const containerRect = this.$el.getBoundingClientRect()
-
-      this.data.height = containerRect.height
-      this.data.width = containerRect.width
-
-      const viewportOffsetTop = containerRect.top
-      const viewportOffsetBottom = window.innerHeight - viewportOffsetTop
-
-      this.data.scrollFactor = viewportOffsetBottom / (window.innerHeight + this.data.height)
-    }
   },
   computed: {
-    offset () {
-      return window.innerWidth * (this.data.scrollFactor - 0.5)
-    }
   }
 }
 </script>
 
 <style scoped>
-  .horizontalScroll{
-    overflow: hidden;
+  .horizontalScroll {
+    max-width: 100vw;  /* iOS braucht das*/
+    white-space: nowrap;
+    /*overflow: hidden;*/
+    z-index: -10;
+  }
+  .horizontalScrollChild {
+    animation: marquee 10s linear infinite;
+  }
+  .horizontalScrollChild:hover {
+    animation-play-state: paused
+  }
+  a, h3 {
+    text-decoration: none;
+  }
+  .horizontalScrollChild>* {
+    display: inline-block;
+    padding-right: 10vw;
+  }
+  @keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
   }
 </style>
+
+<!-- -346.391px -->
