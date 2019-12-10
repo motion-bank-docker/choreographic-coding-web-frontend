@@ -5,7 +5,7 @@ export default {
   props: {
     duration: {
       type: Number,
-      default: 15
+      default: 6
     },
     repeat: {
       type: Number,
@@ -77,6 +77,7 @@ export default {
   .wrap {
     /*overflow: hidden;*/
     white-space: nowrap;
+    display: inline-block;
     /*width: 100vw;*/
     /*position: relative;*/
     /*left: calc(-50vw + 50%);*/
