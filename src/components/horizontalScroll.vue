@@ -19,6 +19,11 @@ export default {
       default: false
     }
   },
+  // methods: {
+  //   pauseAnimation: function () {
+  //     this.props.paused = true
+  //   }
+  // },
   render (h, { $style, props: { duration, repeat, paused }, children, data: { staticClass, key } }) {
     const text = h('div', {
       class: $style.text,
@@ -26,9 +31,13 @@ export default {
         animationDuration: `${duration}s`
       }
     }, children)
-
     return h('div', {
       key,
+      // on: {
+      //   mouseover: function (event) {
+      //     paused = true
+      //   }
+      // },
       class: [
         staticClass,
         $style.wrap
@@ -69,5 +78,3 @@ export default {
     100% { transform:translateX(-100%); }
   }
 </style>
-
-<!-- -346.391px -->
