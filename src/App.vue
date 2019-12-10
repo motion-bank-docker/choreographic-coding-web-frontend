@@ -82,6 +82,11 @@ export default {
   a, a:hover, a:active, a:visited
     color inherit
     text-decoration underline
+  p
+    margin-bottom 0
+  p + p
+    text-indent: 2.5em;
+    margin 0
   #fullgradient
     position fixed
     width 100%

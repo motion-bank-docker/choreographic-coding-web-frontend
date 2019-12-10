@@ -52,7 +52,9 @@ export default {
     font-size calc(10px + 1.5vw)
     margin 1rem 0.6rem
   .drawerActive
-    text-shadow yellow 2px 0px 5px
+    /* background lightgray */
+    /* box-shadow: inset 2px 2px 1px 1px rgba(0,0,0,0.5) */
+    text-shadow yellow 0px 0px 8px
   @media (max-width: 800px)
     .drawerBottom, .drawerTop
       text-align center
