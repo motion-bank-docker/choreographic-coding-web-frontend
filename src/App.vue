@@ -67,10 +67,11 @@ export default {
   *, *::before,*::after
     box-sizing: border-box
   :root, html
-    font-size 18px
+    font-size 24px
     font-family 'SpaceGrotesk', serif
     color black
     background #e7e7e7
+    line-height: 1.2
   body
     margin 0
   h1, h2, h3, h4, h5, h6
@@ -83,6 +84,7 @@ export default {
     /*display flex*/
     /*flex-direction row*/
   #fixednav
+    z-index 10
     top: 0
     left: 0
     height 100%
@@ -109,7 +111,7 @@ export default {
     padding 4rem
     max-width 30vw
   .contentWrapper
-    width 55vw
+    width 50vw
     margin-right 15vw
     float right
   .drawer-handle-right
