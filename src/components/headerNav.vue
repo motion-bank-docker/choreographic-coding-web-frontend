@@ -3,11 +3,11 @@
     div.logobox.logobox-left
       vertical-scroll(:factor="-0.8")
         router-link(:to="{name: 'HelloWorld'}")
-          h1.logo Choreographic Coding Labs&nbsp;
+          h2.logo Choreographic Coding Labs&nbsp;
     div.logobox.logobox-right
       vertical-scroll(:factor="0.8")
         router-link(:to="{name: 'HelloWorld'}")
-          h1.logo Coding Labs Choreographic&nbsp;
+          h2.logo Coding Labs Choreographic&nbsp;
     nav#menu
       vertical-scroll(:factor="-0.8")
         ul
@@ -47,6 +47,10 @@ export default {
   .logo
     font-size calc(15px + 6vw)
     margin 0
+    line-height 0.95
+  nav
+    margin-right 0.9vw
+    line-height 0.95
   nav ul
     display flex
     font-size calc(15px + 3.4vw)
