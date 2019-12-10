@@ -29,6 +29,10 @@ export default {
     reverseDirection: {
       type: Boolean,
       default: false
+    },
+    hideOverflow: {
+      type: Boolean,
+      default: false
     }
   },
   // methods: {
@@ -36,7 +40,7 @@ export default {
   //     this.props.paused = true
   //   }
   // },
-  render (h, { $style, props: { duration, repeat, paused, pauseOnHover, paddingRight, reverseDirection }, children, data: { staticClass, key } }) {
+  render (h, { $style, props: { duration, repeat, paused, pauseOnHover, paddingRight, reverseDirection, hideOverflow }, children, data: { staticClass, key } }) {
     const text = h('div', {
       class: $style.text,
       style: {
@@ -54,7 +58,9 @@ export default {
       // },
       class: [
         staticClass,
-        $style.wrap,
+        hideOverflow
+          ? $style.wrapNoOverflow
+          : $style.wrap,
         pauseOnHover
           ? $style.pauseOnHover
           : undefined
@@ -81,6 +87,9 @@ export default {
     width: 100vw;
     position: relative;
     left: calc(-50vw + 50%);
+  }
+  .wrapNoOverflow {
+    overflow: hidden;
   }
   .pauseOnHover:hover .text {
     animation-play-state: paused

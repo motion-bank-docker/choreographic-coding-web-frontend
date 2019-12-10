@@ -1,18 +1,18 @@
 <template lang="pug">
     #drawerMachine
       h2 Get Data
-      template(v-for="node in nodes")
-        router-link(:to="{name: 'page.lab', params: { nid: node.nid }}")
-          h3 {{node.title}}
-        div.imgPlaceholder
-        //p(v-html="node.body.value")
-        //div(v-for="img in node.field_images_2")
-          img(v-if="img.file.id in imgs" :src="imgs[img.file.id].path")
+      horizontal-scroll(:hideOverflow="true")
+        p heeere comes the data
+      horizontal-scroll(:hideOverflow="true")
+        p wow the data
+
 </template>
 
 <script>
+import horizontalScroll from './horizontalScroll'
 export default {
   name: 'drawerMachine',
+  components: {horizontalScroll},
   data () {
     return {
       nodes: [],
