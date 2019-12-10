@@ -1,6 +1,9 @@
 <template lang="pug">
     #drawerFuture
-      h2 Calls
+      h2 Future
+      p Future Projects / Plans / Goals
+      p shape the future with us (da email)
+      textarea
       template(v-for="node in nodes")
         router-link(:to="{name: 'page.lab', params: { nid: node.nid }}")
           h3 {{node.title}}
@@ -20,7 +23,7 @@ export default {
     }
   },
   async mounted () {
-    const res = await this.$store.dispatch('drupal/getLabs')
+    const res = await this.$store.dispatch('drupal/getCalls')
     this.nodes = res.data.list
     let imgsMap = {}
     this.nodes.forEach(n => {

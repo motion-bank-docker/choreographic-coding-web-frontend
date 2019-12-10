@@ -109,7 +109,7 @@ export default {
     writing-mode lr
     transform rotate(180deg)
     overflow-y: scroll
-    padding 4rem
+    padding 3rem
     max-width 30vw
   .contentWrapper
     width 50vw
