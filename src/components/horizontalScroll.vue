@@ -25,6 +25,10 @@ export default {
     pauseOnHover: {
       type: Boolean,
       default: true
+    },
+    reverseDirection: {
+      type: Boolean,
+      default: false
     }
   },
   // methods: {
@@ -32,12 +36,13 @@ export default {
   //     this.props.paused = true
   //   }
   // },
-  render (h, { $style, props: { duration, repeat, paused, pauseOnHover, paddingRight }, children, data: { staticClass, key } }) {
+  render (h, { $style, props: { duration, repeat, paused, pauseOnHover, paddingRight, reverseDirection }, children, data: { staticClass, key } }) {
     const text = h('div', {
       class: $style.text,
       style: {
         animationDuration: `${duration}s`,
-        paddingRight: `${paddingRight}px`
+        paddingRight: `${paddingRight}px`,
+        animationDirection: `${reverseDirection ? 'reverse' : 'normal'}`
       }
     }, children)
     return h('div', {
@@ -72,6 +77,9 @@ export default {
   .wrap {
     /*overflow: hidden;*/
     white-space: nowrap;
+    /*width: 100vw;*/
+    /*position: relative;*/
+    /*left: calc(-50vw + 50%);*/
   }
   .pauseOnHover:hover .text {
     animation-play-state: paused
