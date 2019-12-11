@@ -80,7 +80,7 @@ export default {
     width: 100vw;
     position: relative;
     left: calc(-50vw + 50%);
-    outline: black 1px solid
+    outline: 1px solid var(--main-border-color)
   .scrolltext
     margin 0
     line-height 1

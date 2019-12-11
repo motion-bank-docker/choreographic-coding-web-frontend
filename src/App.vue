@@ -68,21 +68,29 @@ export default {
   *, *::before,*::after
     box-sizing: border-box
   :root, html
+    --main-bg-color: rgb(231,231,231)
+    --overlay-bg-color: rgb(231,231,231)
+    --main-text-color: rgb(0, 0, 0)
+    --main-text-color-hover: rgb(171, 0, 5)
+    --main-text-color-active: rgb(0, 0, 0)
+    --main-border-color: rgb(0, 0, 0)
     font-size 24px
     font-family 'SpaceGrotesk', serif
-    color black
-    background #e7e7e7
     line-height: 1.3
     letter-spacing 0.003em
   body
     margin 0
     overflow-x: hidden
+    color var(--main-text-color)
+    background var(--main-bg-color)
   h1, h2, h3, h4, h5, h6
     font-weight bold
     font-family 'Syne', sans-serif
   a, a:hover, a:active, a:visited
     color inherit
     text-decoration underline
+  a:hover
+    color var(--main-text-color-hover)
   p
     margin-top 2rem
     margin-bottom 0
@@ -123,7 +131,7 @@ export default {
     transition flex-grow 500ms
     pointer-events: none
   .drawerContent
-    background #e7e7e7
+    background var(--overlay-bg-color)
     writing-mode lr
     transform rotate(180deg)
     overflow-y: scroll

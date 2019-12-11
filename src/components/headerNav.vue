@@ -39,8 +39,8 @@ export default {
 
 <style scoped lang="stylus">
   .leftMenu
-    background #e7e7e7
-    border-left black 2px solid
+    background var(--overlay-bg-color)
+    border-left 2px solid var(--main-border-color)
     z-index 10
   .gradientOverlay
     position relative
@@ -52,10 +52,10 @@ export default {
     pointer-events none
     background: linear-gradient(
       to bottom,
-      rgb(231, 231, 231, 1) 0%,
+      var(--overlay-bg-color) 0%,
       rgba(255,255,255,0) 5%,
       rgba(255,255,255,0) 95%,
-      rgb(231, 231, 231, 1) 100%
+      var(--overlay-bg-color) 100%
     )
   #app
   .logobox

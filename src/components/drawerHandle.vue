@@ -39,22 +39,23 @@ export default {
 <style scoped lang="stylus">
   .drawer
     display flex
-    background #e7e7e7
+    background var(--overlay-bg-color)
     justify-content space-between
-    outline black 2px solid
+    outline 2px solid var(--main-border-color)
     z-index 100
   .drawerBottom, .drawerTop
     flex 1
-    outline black 1px solid
+    outline 1px solid var(--main-border-color)
   .drawerTop
     text-align right
   .drawer h3
     font-size calc(10px + 1.5vw)
     margin 1rem 0.6rem
   .drawerActive
+    color var(--main-text-color-active)
     /* background lightgray */
     /* box-shadow: inset 2px 2px 1px 1px rgba(0,0,0,0.5) */
-    text-shadow yellow 0px 0px 8px
+    // text-shadow yellow 0px 0px 8px
   @media (max-width: 800px)
     .drawerBottom, .drawerTop
       text-align center
