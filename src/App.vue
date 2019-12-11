@@ -72,7 +72,7 @@ export default {
     font-family 'SpaceGrotesk', serif
     color black
     background #e7e7e7
-    line-height: 1.2
+    line-height: 1.3
   body
     margin 0
     overflow-x: hidden
@@ -83,9 +83,10 @@ export default {
     color inherit
     text-decoration underline
   p
+    text-indent: 2.5rem
+    margin-top 2rem
     margin-bottom 0
   p + p
-    text-indent: 2.5em;
     margin 0
   #fullgradient
     position fixed
@@ -93,7 +94,9 @@ export default {
     height 100%
     z-index 200
     pointer-events none
-    background: linear-gradient(to bottom, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 13%,rgba(91,41,255,0) 86%,rgba(59,0,255,0.4) 100%)
+    background: linear-gradient(to bottom, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 13%,rgba(59,0,255,0) 87%,rgba(59,0,255,0.33) 100%)
+    background: linear-gradient(to bottom, rgb(231, 231, 231, 0.8) 0%,rgba(255,255,255,0) 13%,rgba(59,0,255,0) 82%,rgba(255,224,0,0.4) 100%)
+    background: linear-gradient(to bottom, rgb(231, 231, 231, 0.8) 0%,rgba(255,255,255,0) 8%,rgba(255,255,255,0) 92%,rgb(231, 231, 231, 0.8) 100%)
   #app
     /*display flex*/
     /*flex-direction row*/
