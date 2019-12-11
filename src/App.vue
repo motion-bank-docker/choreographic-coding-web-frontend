@@ -73,6 +73,7 @@ export default {
     color black
     background #e7e7e7
     line-height: 1.3
+    letter-spacing 0.003em
   body
     margin 0
     overflow-x: hidden
