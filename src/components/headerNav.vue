@@ -21,6 +21,7 @@
             router-link(:to="{name: 'page.files'}") FAQ
           li
             router-link(:to="{name: 'page.showcase'}") Showcase
+    div.gradientOverlay
 </template>
 
 <script>
@@ -41,6 +42,22 @@ export default {
     background #e7e7e7
     border-left black 2px solid
     z-index 10
+  .gradientOverlay
+    position relative
+    top 0
+    left 100%
+    width 100%
+    height 100%
+    z-index 200
+    pointer-events none
+    background: linear-gradient(
+      to bottom,
+      rgb(231, 231, 231, 1) 0%,
+      rgba(255,255,255,0) 5%,
+      rgba(255,255,255,0) 95%,
+      rgb(231, 231, 231, 1) 100%
+    )
+  #app
   .logobox
     overflow hidden
     white-space nowrap

@@ -84,12 +84,12 @@ export default {
     color inherit
     text-decoration underline
   p
-    text-indent: 2.5rem
     margin-top 2rem
     margin-bottom 0
   p + p
     margin 0
   #fullgradient
+    display none
     position fixed
     width 100%
     height 100%
