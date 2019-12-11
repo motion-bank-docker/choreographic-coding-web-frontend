@@ -35,11 +35,6 @@ export default {
       default: false
     }
   },
-  // methods: {
-  //   pauseAnimation: function () {
-  //     this.props.paused = true
-  //   }
-  // },
   render (h, { $style, props: { duration, repeat, paused, pauseOnHover, paddingRight, reverseDirection, hideOverflow }, children, data: { staticClass, key } }) {
     const text = h('div', {
       class: $style.text,
@@ -51,11 +46,6 @@ export default {
     }, children)
     return h('div', {
       key,
-      // on: {
-      //   mouseover: function (event) {
-      //     console.log(staticClass)
-      //   }
-      // },
       class: [
         staticClass,
         hideOverflow
