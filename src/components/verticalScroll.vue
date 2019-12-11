@@ -12,7 +12,7 @@ export default {
   name: 'verticalScroll',
   data () {
     return {
-      duplicateHtml: [0, 1, 2, 3],
+      duplicateHtml: [0, 1, 2, 3, 4, 5],
       height: 0,
       scrollPosition: 0,
       width: 0
@@ -42,7 +42,7 @@ export default {
   },
   computed: {
     offset () {
-      return (this.scrollPosition * this.factor) % this.height - this.height
+      return (this.scrollPosition * this.factor) % (this.height * 2) - (this.height * 2)
     }
   }
 }
@@ -52,6 +52,14 @@ export default {
   .verticalScroll {
     display: flex;
     flex-direction: row;
+  }
+  .verticalScroll div:nth-child(2n) {
+    color: var(--overlay-bg-color);
+    text-shadow:
+      -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000;
   }
 
 </style>
