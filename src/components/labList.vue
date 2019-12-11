@@ -3,12 +3,19 @@
       h1 All Labs
       template(v-for="node in nodes")
         section.sectionLab
-          div
-            HorizontalScroll(:repeat="12" :duration="(Math.random() + 1) * 2" :reverseDirection="Math.random() < 0.5" )
-              h3 {{node.year}}
-          HorizontalScroll(:repeat="8" :duration="(Math.random() + 1) * 2" :reverseDirection="Math.random() < 0.5" )
-            router-link(:to="{name: 'page.lab', params: { nid: node.nid }}")
-              h3 {{node.city}}
+          div.divider
+          HorizontalScroll(:repeat="20"
+            :duration="(Math.random() + 2) * 2"
+            :reverseDirection="true"
+            :paddingRight="50")
+            span.scrolltext {{node.year}}
+          HorizontalScroll(:repeat="8"
+            :duration="(Math.random() + 2) * 2"
+            :paddingRight="150")
+            router-link.noUnderline(:to="{name: 'page.lab', params: { nid: node.nid }}")
+              h3.scrolltext {{node.city}}
+                //span.scrolltextTop {{node.year}}
+          div.divider
           p(v-html="node.body.value")
           div(v-for="img in node.field_images_2")
             img(v-if="img.file.id in imgs" :src="imgs[img.file.id].path")
@@ -60,10 +67,24 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+  .noUnderline
+    text-decoration none
   p
     line-height 1.25
   h3
+    font-size 1.5rem
     margin 0.2rem 0
   .sectionLab
     margin-top 3rem
+  .divider
+    width: 100vw;
+    position: relative;
+    left: calc(-50vw + 50%);
+    outline: black 1px solid
+  .scrolltext
+    margin 0
+    line-height 1
+  .scrolltextTop
+    vertical-align 2rem
+    padding-left 1rem
 </style>
