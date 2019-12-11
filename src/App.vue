@@ -71,7 +71,7 @@ export default {
     --main-bg-color: rgb(231,231,231)
     --overlay-bg-color: rgb(231,231,231)
     --main-text-color: rgb(0, 0, 0)
-    --main-text-color-hover: rgb(171, 0, 5)
+    --main-text-color-hover: rgb(50, 50, 50)
     --main-text-color-active: rgb(0, 0, 0)
     --main-border-color: rgb(0, 0, 0)
     font-size 24px

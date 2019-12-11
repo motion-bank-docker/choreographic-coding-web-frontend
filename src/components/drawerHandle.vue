@@ -43,6 +43,9 @@ export default {
     justify-content space-between
     outline 2px solid var(--main-border-color)
     z-index 100
+    cursor pointer
+  .drawer>div:hover
+    color var(--main-text-color-hover)
   .drawerBottom, .drawerTop
     flex 1
     outline 1px solid var(--main-border-color)
@@ -52,7 +55,13 @@ export default {
     font-size calc(10px + 1.5vw)
     margin 1rem 0.6rem
   .drawerActive
-    color var(--main-text-color-active)
+    //color var(--main-text-color-active)
+    color var(--overlay-bg-color)
+    text-shadow:
+      -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000;
     /* background lightgray */
     /* box-shadow: inset 2px 2px 1px 1px rgba(0,0,0,0.5) */
     // text-shadow yellow 0px 0px 8px
