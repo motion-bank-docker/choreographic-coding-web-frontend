@@ -151,9 +151,6 @@ export default {
     .drawer-handle-right
       order -2
       transform unset
-    nav
-      height 100%
-      overflow hidden
     .drawerContent
       max-width 80vw
       order -5

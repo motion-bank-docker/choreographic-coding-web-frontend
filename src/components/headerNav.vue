@@ -79,6 +79,10 @@ export default {
   @media (max-width: 800px)
     .logo
       font-size calc(15px + 2vw)
+      line-height 1.15
+    nav
+      margin-right 0.4vw
+      line-height 0.95
     nav ul
       font-size calc(15px + 2vw)
     .logobox-left
