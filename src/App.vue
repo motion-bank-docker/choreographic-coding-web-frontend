@@ -87,6 +87,7 @@ export default {
     margin-top 2rem
     margin-bottom 0
   p + p
+    text-indent: 2.5rem
     margin 0
   #fullgradient
     display none
