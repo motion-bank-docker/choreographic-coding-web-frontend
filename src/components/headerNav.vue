@@ -57,9 +57,8 @@ export default {
       rgba(255,255,255,0) 95%,
       var(--overlay-bg-color) 100%
     )
-  #app
   .logobox
-    overflow hidden
+    /*overflow hidden*/
     white-space nowrap
   .logo
     font-size calc(15px + 6vw)
