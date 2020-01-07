@@ -1,5 +1,4 @@
 import HelloWorld from './HelloWorld'
-import AFrameStage from './aFrameStage'
 import drawerPast from './drawerPast'
 import drawerFuture from './drawerFuture'
 import drawerHuman from './drawerHuman'
@@ -8,7 +7,6 @@ import drawerHandle from './drawerHandle'
 import headerNav from './headerNav'
 export {
   HelloWorld,
-  AFrameStage,
   drawerPast,
   drawerFuture,
   drawerHuman,
