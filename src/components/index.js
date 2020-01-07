@@ -1,5 +1,5 @@
 import HelloWorld from './HelloWorld'
-import AFrameStage from './AFrameStage'
+import AFrameStage from './aFrameStage'
 import drawerPast from './drawerPast'
 import drawerFuture from './drawerFuture'
 import drawerHuman from './drawerHuman'
