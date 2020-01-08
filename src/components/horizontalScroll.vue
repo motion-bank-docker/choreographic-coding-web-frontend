@@ -40,7 +40,7 @@ export default {
       class: $style.text,
       style: {
         animationDuration: `${duration}s`,
-        paddingRight: `${paddingRight}px`,
+        marginRight: `${paddingRight}px`,
         animationDirection: `${reverseDirection ? 'reverse' : 'normal'}`
       }
     }, children)
@@ -71,7 +71,7 @@ export default {
 
 <style module>
   .wrap {
-    overflow: auto;
+    overflow: hidden;
     /*white-space: nowrap;*/
     /*display: inline-block;*/
     width: 100vw;

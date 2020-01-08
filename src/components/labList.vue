@@ -3,19 +3,13 @@
       h1 All Labs
       template(v-for="node in nodes")
         section.sectionLab
-          div.divider
-          HorizontalScroll(:repeat="20"
-            :duration="(Math.random() + 2) * 2"
-            :reverseDirection="true"
-            :paddingRight="50")
-            span.scrolltext {{node.year}}
           HorizontalScroll(:repeat="8"
-            :duration="(Math.random() + 2) * 2"
-            :paddingRight="150")
+            :duration="(Math.random() + 2) * 10"
+            :paddingRight="250")
             router-link.noUnderline(:to="{name: 'page.lab', params: { nid: node.nid }}")
-              h3.scrolltext {{node.city}}
-                //span.scrolltextTop {{node.year}}
-          div.divider
+              div.oval
+                h3.scrolltext {{node.city}}
+                span.scrolltextTop {{node.year}}
           p(v-html="node.body.value")
           div(v-for="img in node.field_images_2")
             img(v-if="img.file.id in imgs" :src="imgs[img.file.id].path")
@@ -85,6 +79,12 @@ export default {
     margin 0
     line-height 1
   .scrolltextTop
-    vertical-align 2rem
-    padding-left 1rem
+    position absolute
+    left 50%
+    transform translateX(-50%)
+  .oval
+    padding 1em
+    padding-bottom 1.4em
+    border black solid 1px
+    border-radius 50%
 </style>
