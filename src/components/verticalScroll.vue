@@ -61,5 +61,18 @@ export default {
       -1px 1px 0 #000,
       1px 1px 0 #000;
   }
+  @supports (-webkit-text-stroke-color: #000) or (-moz-text-stroke-color: #000) {
+    .verticalScroll div:nth-child(2n) {
+      text-shadow: none;
+      color: var(--overlay-bg-color);
+      -moz-text-stroke-color: #000;
+      -webkit-text-stroke-color: #000;
+      -moz-text-stroke-width: 1px;
+      -webkit-text-stroke-width: 1px;
+    }
+    a:active, a:visited {
+      -webkit-text-stroke: inherit;
+    }
+  }
 
 </style>
