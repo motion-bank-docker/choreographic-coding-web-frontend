@@ -7,11 +7,10 @@ cache:
 before_script:
   - npm install
 
-deploy: 
+deploy:
     stage: deploy
     only:
         - master
-        deploy:
     script:
       - npm run build
       - apt-get update -qq && apt-get install -y -qq lftp
