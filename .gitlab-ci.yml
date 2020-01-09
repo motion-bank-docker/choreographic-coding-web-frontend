@@ -8,7 +8,7 @@ before_script:
   - npm install
   - npm run build
   - apk update
-  - apk install lftp
+  - apk add lftp
 
 deploy:
     stage: deploy
