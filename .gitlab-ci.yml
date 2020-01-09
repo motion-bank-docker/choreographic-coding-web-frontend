@@ -15,5 +15,5 @@ deploy:
     only:
         - master
     script:
-      - lftp -c "set ftp:ssl-allow no; open -u $USERNAME,$PASSWORD $HOST; mirror -Rev dist/ /  --ignore-time --parallel=10 --exclude-glob .git* --exclude .git/"
+      lftp -e "debug; set ftp:ssl-allow false; set ssl:check-hostname false; open -u $USER,$PASSWORD $HOST; mirror -R -p --verbose=3 dist/ /; quit"
 
