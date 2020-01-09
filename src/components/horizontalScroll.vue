@@ -40,7 +40,7 @@ export default {
       class: $style.text,
       style: {
         animationDuration: `${duration}s`,
-        marginRight: `${paddingRight}px`,
+        paddingRight: `${paddingRight}px`,
         animationDirection: `${reverseDirection ? 'reverse' : 'normal'}`
       }
     }, children)

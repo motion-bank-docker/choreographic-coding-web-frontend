@@ -79,12 +79,11 @@ export default {
     margin 0
     line-height 1
   .scrolltextTop
-    position absolute
-    left 50%
-    transform translateX(-50%)
+    position relative
   .oval
+    text-align center
     padding 1em
-    padding-bottom 1.4em
+    padding-bottom 0.5em
     border black solid 1px
     border-radius 50%
 </style>
