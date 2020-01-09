@@ -6,13 +6,14 @@ cache:
 
 before_script:
   - npm install
+  - npm run build
+  - apt-get update -qy
+  - apt-get install -y lftp
 
 deploy:
     stage: deploy
     only:
         - master
     script:
-      - npm run build
-      - apt-get update -qq && apt-get install -y -qq lftp
       - lftp -c "set ftp:ssl-allow no; open -u $USERNAME,$PASSWORD $HOST; mirror -Rev dist/ /  --ignore-time --parallel=10 --exclude-glob .git* --exclude .git/"
 
