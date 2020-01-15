@@ -8,6 +8,8 @@
         //horizontal-scroll
         h3 {{node.title}}
         p(v-html="node.body.value")
+        div(v-for="img in node.field_images_2" :key="img.file.id")
+          img(v-if="img.file.id in imgs" :src="imgs[img.file.id].path")
 </template>
 
 <script>
@@ -17,12 +19,23 @@ export default {
   components: { horizontalScroll },
   data () {
     return {
-      nodes: []
+      nodes: [],
+      imgs: {},
     }
   },
   async mounted () {
-    const res = await this.$store.dispatch('drupal/getNodes')
+    const res = await this.$store.dispatch('drupal/getShowcases')
     this.nodes = res.data.list
+    this.nodes.forEach(n => {
+      n.field_images_2.forEach(async i => {
+        console.log(i.file.id)
+        const id = i.file.id
+        const response = await this.$store.dispatch('drupal/getImgPath', id)
+        const file = response.data.files[0].file
+        this.$set(this.imgs, id, file)
+      })
+    })
+    console.log(this.imgs)
   }
 }
 </script>

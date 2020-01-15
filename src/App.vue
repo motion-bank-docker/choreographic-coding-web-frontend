@@ -97,6 +97,8 @@ export default {
   p + p
     text-indent: 2.5rem
     margin 0
+  img
+    max-width 100%
   #fullgradient
     display none
     position fixed
