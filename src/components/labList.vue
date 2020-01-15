@@ -7,7 +7,7 @@
             :duration="(Math.random() + 2) * 10"
             :paddingRight="250")
             router-link.noUnderline(:to="{name: 'page.lab', params: { nid: node.nid }}")
-              div.oval
+              ovalSpace
                 h3.scrolltext {{node.city}}
                 span.scrolltextTop {{node.year}}
           p(v-html="node.body.value")
@@ -17,9 +17,10 @@
 
 <script>
 import HorizontalScroll from './horizontalScroll'
+import ovalSpace from './ovalSpace'
 export default {
   name: 'nodes',
-  components: {HorizontalScroll},
+  components: {HorizontalScroll, ovalSpace},
   data () {
     return {
       nodes: [],
@@ -80,10 +81,4 @@ export default {
     line-height 1
   .scrolltextTop
     position relative
-  .oval
-    text-align center
-    padding 1em
-    padding-bottom 0.5em
-    border black solid 1px
-    border-radius 50%
 </style>
