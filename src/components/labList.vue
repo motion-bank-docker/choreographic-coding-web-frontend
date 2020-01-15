@@ -37,18 +37,15 @@ export default {
         city: node.title.replace(/.\d{4}/gm, '')
       }
     })
-    let imgsMap = {}
     this.nodes.forEach(n => {
       n.field_images_2.forEach(async i => {
         console.log(i.file.id)
         const id = i.file.id
         const response = await this.$store.dispatch('drupal/getImgPath', id)
         const file = response.data.files[0].file
-        imgsMap[id] = file
+        this.$set(this.imgs, id, file)
       })
     })
-    console.log(imgsMap)
-    this.imgs = imgsMap
   },
   methods: {
     loadImage: async function (id) {
