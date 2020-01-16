@@ -1,14 +1,13 @@
 <template lang="pug">
     #drawerFuture
       h2 Future
-      p Future Projects / Plans / Goals
-      p shape the future with us (da email)
+      p Future Projects / Plans / Goals </br> e.g. Choreographic Coding School?
+      h3 Newsletter
       mailchimp-subscribe(url='https://choreographiccoding.us8.list-manage.com/subscribe/post-json'
         user-id='5b3dec718900ad84210c545ac'
         list-id='24abe7a566'
         @error='onError'
         @success='onSuccess')
-          <!--template(v-slot='{ subscribe, setEmail, firstName, error, success, loading }')-->
 </template>
 
 <script>
