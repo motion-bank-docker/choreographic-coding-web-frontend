@@ -14,7 +14,8 @@ export default {
   },
   computed: {
     rotation () {
-      return Math.random() * 200
+      // return Math.random() * 200
+      return 0
     }
   },
   methods: {}

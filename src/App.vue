@@ -143,6 +143,7 @@ export default {
     width 50vw
     margin-right 15vw
     float right
+    margin-bottom 15rem
   .drawer-handle-right
     transform rotate(180deg)
   .drawerIsOpen
