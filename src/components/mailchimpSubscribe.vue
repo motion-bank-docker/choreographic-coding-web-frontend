@@ -1,13 +1,24 @@
 <template lang="pug">
   form.mailchimpSignup(@submit.prevent='subscribe')
-    label Email
-    input(type='email' @input='setEmail($event.target.value)' placeholder="Email Address")
-    lable First Name
-    input(type='text' v-model="firstName" placeholder="First Name")
-    lable Last Name
-    input(type='text' v-model="lastName" placeholder="Last Name")
+    label(for="email") Email
+    input(type='email'
+      id="email"
+      required autocorrect="off" autocapitalize="off" spellcheck="false"
+      @input='setEmail($event.target.value)'
+      placeholder="Email Address")
+    lable(for="firstname") First Name
+    input(type='text'
+      id="firstname"
+      required autocorrect="off" autocapitalize="off" spellcheck="false"
+      v-model="firstName"
+      placeholder="First Name")
+    lable(for="lastename") Last Name
+    input(type='text'
+      id="lastename"
+      required autocorrect="off" autocapitalize="off" spellcheck="false"
+      v-model="lastName"
+      placeholder="Last Name")
     button(type='submit') Submit
-    p {{firstName}}
     div(v-if='error') {{ error }}
     div(v-if='success') Yay!
     div(v-if='loading') Loading&mldr;
@@ -127,6 +138,8 @@ export default {
     border 2px solid #000
     min-height 1.5rem
     margin-bottom 0.5rem
+  input
+    background var(--overlay-bg-color)
   button
     font-size inherit
     color white
@@ -134,5 +147,6 @@ export default {
   input:focus, button:focus
     outline: 3px solid #323232
     outline-offset: 2px
-
+  input:valid
+    /*border 2px solid green*/
 </style>
