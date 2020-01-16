@@ -9,7 +9,9 @@
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js",
-    "stage": "npm run build && rsync -azvhe ssh --stats --progress dist/ root@wwwwww.space:/home/wwwwww/domains/ccl.wwwwww.space/public_html/"
+    "stage": "npm run build && rsync -azvhe ssh --stats --progress dist/ root@wwwwww.space:/home/wwwwww/domains/ccl.wwwwww.space/public_html/",
+    "build-docker": "npm run build && docker build -t motionbank/ccl:latest .",
+    "push-docker": "docker push motionbank/ccl:latest"
   },
   "dependencies": {
     "axios": "^0.18.0",
