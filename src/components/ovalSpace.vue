@@ -10,12 +10,19 @@ export default {
     rotate: {
       default: 1,
       type: Number
+    },
+    randomRotate: {
+      default: false,
+      type: Boolean
     }
   },
   computed: {
     rotation () {
-      // return Math.random() * 200
-      return 0
+      if (this.randomRotate) {
+        return Math.random() * 60 - 30
+      } else {
+        return 0
+      }
     }
   },
   methods: {}
