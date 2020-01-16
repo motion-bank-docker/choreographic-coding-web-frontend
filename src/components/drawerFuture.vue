@@ -3,20 +3,12 @@
       h2 Future
       p Future Projects / Plans / Goals
       p shape the future with us (da email)
-      textarea
       mailchimp-subscribe(url='https://choreographiccoding.us8.list-manage.com/subscribe/post-json'
         user-id='5b3dec718900ad84210c545ac'
         list-id='24abe7a566'
         @error='onError'
         @success='onSuccess')
-        template(v-slot='{ subscribe, setEmail, firstName, error, success, loading }')
-          form(@submit.prevent='subscribe')
-            input(type='email' @input='setEmail($event.target.value)')
-            input(type='text' v-bind:value="firstName")
-            button(type='submit') Submit
-            div(v-if='error') {{ error }}
-            div(v-if='success') Yay!
-            div(v-if='loading') Loading&mldr;
+          <!--template(v-slot='{ subscribe, setEmail, firstName, error, success, loading }')-->
 </template>
 
 <script>

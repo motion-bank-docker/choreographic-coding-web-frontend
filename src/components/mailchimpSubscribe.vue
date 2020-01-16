@@ -1,3 +1,14 @@
+<template lang="pug">
+  form.mailchimpSignup(@submit.prevent='subscribe')
+    input(type='email' @input='setEmail($event.target.value)' placeholder="Email Address")
+    input(type='text' v-model="firstName" placeholder="First Name")
+    input(type='text' v-model="lastName" placeholder="Last Name")
+    button(type='submit') Submit
+    p {{firstName}}
+    div(v-if='error') {{ error }}
+    div(v-if='success') Yay!
+    div(v-if='loading') Loading&mldr;
+</template>
 <script>
 import jsonp from 'jsonp'
 import queryString from 'query-string'
@@ -99,3 +110,14 @@ export default {
   }
 }
 </script>
+
+<style scoped lang="stylus">
+  .mailchimpSignup
+    margin-top 1rem
+    display flex
+    flex-direction column
+  input
+    border 2px solid #000
+    height 1.5rem
+    margin-bottom 0.5rem
+</style>
