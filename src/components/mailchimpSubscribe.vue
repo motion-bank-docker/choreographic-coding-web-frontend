@@ -1,7 +1,10 @@
 <template lang="pug">
   form.mailchimpSignup(@submit.prevent='subscribe')
+    label Email
     input(type='email' @input='setEmail($event.target.value)' placeholder="Email Address")
+    lable First Name
     input(type='text' v-model="firstName" placeholder="First Name")
+    lable Last Name
     input(type='text' v-model="lastName" placeholder="Last Name")
     button(type='submit') Submit
     p {{firstName}}
@@ -116,8 +119,20 @@ export default {
     margin-top 1rem
     display flex
     flex-direction column
-  input
+    font-size 0.7em
+  input, button
+    font-size inherit
+    font-family inherit
+    padding 0.5rem
     border 2px solid #000
-    height 1.5rem
+    min-height 1.5rem
     margin-bottom 0.5rem
+  button
+    font-size inherit
+    color white
+    background black
+  input:focus, button:focus
+    outline: 3px solid #323232
+    outline-offset: 2px
+
 </style>
