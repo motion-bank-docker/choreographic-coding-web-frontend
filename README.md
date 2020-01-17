@@ -2,6 +2,8 @@
 
 > A project to test access to Drupal from Vue.js
 
+[![CircleCI](https://circleci.com/gh/motionbank/choreographic-coding-web-frontend/tree/master.svg?style=svg)](https://circleci.com/gh/motionbank/choreographic-coding-web-frontend/tree/master)
+
 ## In Drupal you should
 
 - enable ```restws``` module, configre
