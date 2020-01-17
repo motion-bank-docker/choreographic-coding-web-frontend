@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = 'http://choreographiccoding.org'
+const baseUrl = 'http://ccl-api.motionbank.org'
 
 const getEntities = (type = 'node', params = {}, pager = undefined) => {
   return axios.get(urlWithPager(`${baseUrl}/${type}.json`, pager), {params: params})
@@ -20,7 +20,7 @@ const urlWithPager = function (url, pager) {
 }
 
 const getImgPath = function (fileId) {
-  let imgJson = axios.get(`${baseUrl}/api/files/${fileId}`)
+  let imgJson = axios.get(`${baseUrl}/api/v1/files/${fileId}`)
   return imgJson
 }
 
