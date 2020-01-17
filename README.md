@@ -1,4 +1,4 @@
-# Re-designing the choreographiccoding.org website
+# choreographiccoding.org redesign
 
 [![CircleCI](https://circleci.com/gh/motionbank/choreographic-coding-web-frontend/tree/master.svg?style=svg)](https://circleci.com/gh/motionbank/choreographic-coding-web-frontend/tree/master)
 
