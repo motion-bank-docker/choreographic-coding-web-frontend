@@ -1,13 +1,6 @@
-# CCL.org Vue.js test
-
-> A project to test access to Drupal from Vue.js
+# Re-designing the choreographiccoding.org website
 
 [![CircleCI](https://circleci.com/gh/motionbank/choreographic-coding-web-frontend/tree/master.svg?style=svg)](https://circleci.com/gh/motionbank/choreographic-coding-web-frontend/tree/master)
-
-## In Drupal you should
-
-- enable ```restws``` module, configre
-- enable ```cors``` module, configure and clear cache
 
 ## Sitemap
 
@@ -49,7 +42,7 @@
 ```
 
 
-## Build Setup
+## Build Setup … it's a standard Vue.js frontend, so:
 
 ``` bash
 # install dependencies
