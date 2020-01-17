@@ -1,18 +1,22 @@
 <template lang="pug">
     #drawerPast
       h2 All Labs
-      template(v-for="node in nodes")
+      template(v-for="node in reverseLabs")
         router-link(:to="{name: 'page.lab', params: { nid: node.nid }}")
-          h3 {{node.title}}
-        div.imgPlaceholder
+          ovalSpace(:randomRotate="true")
+            h3 {{node.title}}
+        //div.imgPlaceholder
         //p(v-html="node.body.value")
         //div(v-for="img in node.field_images_2")
           img(v-if="img.file.id in imgs" :src="imgs[img.file.id].path")
 </template>
 
 <script>
+import ovalSpace from './ovalSpace'
+
 export default {
   name: 'drawerPast',
+  components: {ovalSpace},
   data () {
     return {
       nodes: [],
@@ -33,6 +37,11 @@ export default {
     })
     console.log(imgsMap)
     this.imgs = imgsMap
+  },
+  computed: {
+    reverseLabs () {
+      return this.nodes.slice().reverse()
+    }
   },
   methods: {
     loadImage: async function (id) {

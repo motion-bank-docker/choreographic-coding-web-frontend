@@ -14,7 +14,7 @@
           li
             router-link(:to="{name: 'HelloWorld'}") Labs
           li
-            router-link(:to="{name: 'page.files'}") About
+            router-link(:to="{name: 'page.about'}") About
           li
             router-link(:to="{name: 'page.calls'}") Calls
           li

@@ -7,7 +7,7 @@
             :duration="(Math.random() + 2) * 10"
             :paddingRight="250")
             router-link.noUnderline(:to="{name: 'page.lab', params: { nid: node.nid }}")
-              div.oval
+              ovalSpace
                 h3.scrolltext {{node.city}}
                 span.scrolltextTop {{node.year}}
           p(v-html="node.body.value")
@@ -17,9 +17,10 @@
 
 <script>
 import HorizontalScroll from './horizontalScroll'
+import ovalSpace from './ovalSpace'
 export default {
   name: 'nodes',
-  components: {HorizontalScroll},
+  components: {HorizontalScroll, ovalSpace},
   data () {
     return {
       nodes: [],
@@ -36,18 +37,15 @@ export default {
         city: node.title.replace(/.\d{4}/gm, '')
       }
     })
-    let imgsMap = {}
     this.nodes.forEach(n => {
       n.field_images_2.forEach(async i => {
         console.log(i.file.id)
         const id = i.file.id
         const response = await this.$store.dispatch('drupal/getImgPath', id)
         const file = response.data.files[0].file
-        imgsMap[id] = file
+        this.$set(this.imgs, id, file)
       })
     })
-    console.log(imgsMap)
-    this.imgs = imgsMap
   },
   methods: {
     loadImage: async function (id) {
@@ -80,10 +78,4 @@ export default {
     line-height 1
   .scrolltextTop
     position relative
-  .oval
-    text-align center
-    padding 1em
-    padding-bottom 0.5em
-    border black solid 1px
-    border-radius 50%
 </style>

@@ -97,6 +97,8 @@ export default {
   p + p
     text-indent: 2.5rem
     margin 0
+  img
+    max-width 100%
   #fullgradient
     display none
     position fixed
@@ -141,6 +143,7 @@ export default {
     width 50vw
     margin-right 15vw
     float right
+    margin-bottom 15rem
   .drawer-handle-right
     transform rotate(180deg)
   .drawerIsOpen

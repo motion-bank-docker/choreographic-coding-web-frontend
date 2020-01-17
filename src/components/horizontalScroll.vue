@@ -71,9 +71,11 @@ export default {
 
 <style module>
   .wrap {
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: visible;
+    overflow: visible;
     /*white-space: nowrap;*/
-    /*display: inline-block;*/
+    display: inline-block;
     width: 100vw;
     position: relative;
     left: calc(-50vw + 50%);

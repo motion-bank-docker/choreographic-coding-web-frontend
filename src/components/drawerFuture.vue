@@ -1,20 +1,21 @@
 <template lang="pug">
     #drawerFuture
       h2 Future
-      p Future Projects / Plans / Goals
-      p shape the future with us (da email)
-      textarea
-      template(v-for="node in nodes")
-        router-link(:to="{name: 'page.lab', params: { nid: node.nid }}")
-          h3 {{node.title}}
-        div.imgPlaceholder
-        //p(v-html="node.body.value")
-        //div(v-for="img in node.field_images_2")
-          img(v-if="img.file.id in imgs" :src="imgs[img.file.id].path")
+      p Future Projects / Plans / Goals </br> e.g. Choreographic Coding School?
+      h3 Newsletter
+      mailchimp-subscribe(url='https://choreographiccoding.us8.list-manage.com/subscribe/post-json'
+        user-id='5b3dec718900ad84210c545ac'
+        list-id='24abe7a566'
+        @error='onError'
+        @success='onSuccess')
 </template>
 
 <script>
+import mailchimpSubscribe from './mailchimpSubscribe'
 export default {
+  components: {
+    mailchimpSubscribe
+  },
   name: 'drawerFuture',
   data () {
     return {
@@ -38,6 +39,12 @@ export default {
     this.imgs = imgsMap
   },
   methods: {
+    onError (e) {
+      console.log(e)
+    },
+    onSuccess (e) {
+      console.log(e)
+    },
     loadImage: async function (id) {
       const resImg = await this.$store.dispatch('drupal/getImgPath', id)
       let file = resImg.data.files[0].file

@@ -42,6 +42,8 @@ export default {
     getPages: (commit, pager) => getEntities('node', {type: 'page'}, pager),
     getPage: (commit, id) => getEntityByID('node', id),
     getCalls: (commit, pager) => getEntities('node', {type: 'page', field_is_call: 1}, pager),
+    getShowcases: (commit, pager) => getEntities('node', {type: 'showcase'}, pager),
+    getShowcase: (commit, id) => getEntityByID('node', id),
     getUsers: (commit, pager) => getEntities('user', {}, pager),
     getUser: (commit, id) => getEntityByID('user', id),
     getTerms: (commit, pager) => getEntities('taxonomy_term', {}, pager),
