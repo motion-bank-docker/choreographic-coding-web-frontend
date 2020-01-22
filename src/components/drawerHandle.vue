@@ -41,14 +41,14 @@ export default {
     display flex
     background var(--overlay-bg-color)
     justify-content space-between
-    outline 2px solid var(--main-border-color)
+    outline var(--main-border-thickness) solid var(--main-border-color)
     z-index 100
     cursor pointer
   .drawerBottom, .drawerTop
     flex 1
-    outline 1px solid var(--main-border-color)
   .drawerTop
     text-align right
+    outline var(--main-border-thickness) solid var(--main-border-color)
   .drawer h3
     font-size calc(10px + 1.5vw)
     margin 1rem 0.6rem

@@ -40,7 +40,7 @@ export default {
 <style scoped lang="stylus">
   .leftMenu
     background var(--overlay-bg-color)
-    border-left 2px solid var(--main-border-color)
+    border-left var(--main-border-thickness) solid var(--main-border-color)
     z-index 10
   .gradientOverlay
     position relative

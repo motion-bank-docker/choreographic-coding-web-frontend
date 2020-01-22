@@ -74,6 +74,7 @@ export default {
     --main-text-color-hover: rgb(50, 50, 50)
     --main-text-color-active: rgb(0, 0, 0)
     --main-border-color: rgb(0, 0, 0)
+    --main-border-thickness: 1px
     font-size 24px
     font-family 'SpaceGrotesk', serif
     line-height: 1.3
