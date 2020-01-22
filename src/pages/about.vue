@@ -15,7 +15,7 @@ export default {
     }
   },
   async mounted () {
-    const res = await this.$store.dispatch('drupal/getPage', 55)
+    const res = await this.$store.dispatch('drupal/getPage', 57)
     this.node = res.data
     console.log(this.node)
   }
