@@ -20,7 +20,7 @@
       placeholder="Last Name")
     button(type='submit') Submit
     div(v-if='error') {{ error }}
-    div(v-if='success') Yay!
+    div(v-if='success') Thank you, your sign-up request was successful! Please check your email inbox to confirm.
     div(v-if='loading') Loading&mldr;
 </template>
 <script>
