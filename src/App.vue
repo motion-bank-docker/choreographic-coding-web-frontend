@@ -84,6 +84,7 @@ export default {
     overflow-x: hidden
     color var(--main-text-color)
     background var(--main-bg-color)
+    min-height 150vh
   h1, h2, h3, h4, h5, h6
     font-weight bold
     font-family 'Syne', sans-serif
