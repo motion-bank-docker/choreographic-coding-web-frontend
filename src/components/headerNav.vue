@@ -12,7 +12,7 @@
       vertical-scroll(:factor="-0.8")
         ul
           li
-            router-link(:to="{name: 'HelloWorld'}") Labs
+            router-link(:to="{name: 'page.labs'}") Labs
           li
             router-link(:to="{name: 'page.about'}") About
           li
