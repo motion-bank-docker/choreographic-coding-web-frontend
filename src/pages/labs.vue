@@ -10,9 +10,9 @@
               ovalSpace
                 h3.scrolltext {{node.city}}
                 span.scrolltextTop {{node.year}}
-          p(v-html="node.body.value")
-          div(v-for="img in node.field_images_2")
-            img(v-if="img.file.id in imgs" :src="imgs[img.file.id].path")
+          p(v-html="node.body")
+          div(v-for="img in node.images")
+            img(:src="img.src")
 </template>
 
 <script>
@@ -30,16 +30,19 @@ export default {
   async mounted () {
     const res = await this.$store.dispatch('drupal/getLabs')
     // this.nodes = res.data.list
-    this.nodes = res.data.list.map(node => {
+    this.nodes = res.data.nodes.map(node => {
+      console.log(node.node.body)
       return {
-        ...node,
-        year: node.title.match(/\d{4}/gm)[0],
-        city: node.title.replace(/.\d{4}/gm, '')
+        ...node.node,
+        // parsedBody: JSON.parse(node.node.body),
+        year: node.node.title.match(/\d{4}/gm)[0],
+        city: node.node.title.replace(/.\d{4}/gm, '')
       }
     })
+    console.log(this.nodes)
     this.nodes.forEach(n => {
       n.field_images_2.forEach(async i => {
-        console.log(i.file.id)
+        // console.log(i.file.id)
         const id = i.file.id
         const response = await this.$store.dispatch('drupal/getImgPath', id)
         const file = response.data.files[0].file
@@ -51,7 +54,7 @@ export default {
     loadImage: async function (id) {
       const resImg = await this.$store.dispatch('drupal/getImgPath', id)
       let file = resImg.data.files[0].file
-      console.log(file.path)
+      // console.log(file.path)
       return file
     }
   }
