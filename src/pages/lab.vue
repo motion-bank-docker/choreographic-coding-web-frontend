@@ -47,6 +47,8 @@ export default {
     this.lab = res.data.nodes[0].node
     this.lab.parsedBody = json.json_decode(this.lab.body)
     this.lab.supported_by = this.lab.supported_by.split(',')
+    const resParticipants = await this.$store.dispatch('drupal/getLabParticipants', this.$route.params.nid)
+    console.log(resParticipants)
   }
 }
 </script>
