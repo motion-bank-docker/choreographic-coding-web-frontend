@@ -10,7 +10,7 @@
               ovalSpace
                 h3.scrolltext {{node.city}}
                 span.scrolltextTop {{node.year}}
-          p(v-html="node.body")
+          p(v-html="node.parsedBody")
           div(v-for="img in node.images")
             img(:src="img.src")
 </template>
@@ -18,6 +18,7 @@
 <script>
 import HorizontalScroll from '../components/horizontalScroll'
 import ovalSpace from '../components/ovalSpace'
+const jsonDecode = require('locutus/php/json/json_decode')
 export default {
   name: 'labs',
   components: {HorizontalScroll, ovalSpace},
@@ -34,21 +35,21 @@ export default {
       console.log(node.node.body)
       return {
         ...node.node,
-        // parsedBody: JSON.parse(node.node.body),
+        parsedBody: jsonDecode(node.node.body),
         year: node.node.title.match(/\d{4}/gm)[0],
         city: node.node.title.replace(/.\d{4}/gm, '')
       }
     })
     console.log(this.nodes)
-    this.nodes.forEach(n => {
-      n.field_images_2.forEach(async i => {
-        // console.log(i.file.id)
-        const id = i.file.id
-        const response = await this.$store.dispatch('drupal/getImgPath', id)
-        const file = response.data.files[0].file
-        this.$set(this.imgs, id, file)
-      })
-    })
+    // this.nodes.forEach(n => {
+    //   n.field_images_2.forEach(async i => {
+    //     // console.log(i.file.id)
+    //     const id = i.file.id
+    //     const response = await this.$store.dispatch('drupal/getImgPath', id)
+    //     const file = response.data.files[0].file
+    //     this.$set(this.imgs, id, file)
+    //   })
+    // })
   },
   methods: {
     loadImage: async function (id) {
