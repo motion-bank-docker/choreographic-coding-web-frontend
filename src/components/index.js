@@ -5,6 +5,7 @@ import drawerHuman from './drawerHuman'
 import drawerMachine from './drawerMachine'
 import drawerHandle from './drawerHandle'
 import headerNav from './headerNav'
+import spinningWheel from './spinningWheel'
 export {
   HelloWorld,
   drawerPast,
@@ -12,5 +13,6 @@ export {
   drawerHuman,
   drawerMachine,
   drawerHandle,
-  headerNav
+  headerNav,
+  spinningWheel
 }

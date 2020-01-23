@@ -1,12 +1,13 @@
 <template lang="pug">
-  <LabList/>
+  spinning-wheel
 </template>
 
 <script>
 import LabList from '../components/labList'
+import SpinningWheel from './spinningWheel'
 export default {
   name: 'HelloWorld',
-  components: {LabList},
+  components: {SpinningWheel, LabList},
   data () {
     return {}
   }
