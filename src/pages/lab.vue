@@ -6,16 +6,15 @@
         div.headerImg
         horizontal-scroll(:repeat="6")
           h2 {{lab.title}}
-        p(v-html="lab.body.value")
-        p {{getTime(lab.field_date.value)}}
-        p {{getTime(lab.field_date.value2)}}
+        p(v-html="lab.parsedBody")
+        p {{lab.date}}
         h4 Participants
-        template(v-for="participants in lab.field_participants")
+        template(v-for="participants in lab.participants")
           li {{participants}}
         h4 Support
-        template(v-for="supporter in lab.field_supported_by")
+        template(v-for="supporter in lab.supported_by")
           li {{supporter}}
-        div(v-if="imgsLoaded")
+        // div(v-if="imgsLoaded")
           p image Loaded
           div(v-for="img in imgs")
             img(:src="img.path")
@@ -23,6 +22,7 @@
 
 <script>
 import horizontalScroll from '../components/horizontalScroll'
+const json = require('locutus/php/json')
 export default {
   name: 'lab',
   components: { horizontalScroll },
@@ -43,17 +43,10 @@ export default {
   async mounted () {
     const res = await this.$store.dispatch('drupal/getLab', this.$route.params.nid)
     this.loading = false
-    this.lab = res.data
-    let imgsArr = []
-    this.lab.field_images_2.forEach(async i => {
-      const id = i.file.id
-      const response = await this.$store.dispatch('drupal/getImgPath', id)
-      const file = response.data.files[0].file
-      imgsArr.push(file)
-    })
-    console.log(imgsArr)
-    this.imgs = imgsArr
-    if (imgsArr.length > 0) { this.imgsLoaded = true }
+    console.log(res)
+    this.lab = res.data.nodes[0].node
+    this.lab.parsedBody = json.json_decode(this.lab.body)
+    this.lab.supported_by = this.lab.supported_by.split(',')
   }
 }
 </script>
