@@ -10,7 +10,7 @@
               ovalSpace
                 h3.scrolltext {{node.city}}
                 span.scrolltextTop {{node.year}}
-          p(v-html="node.parsedBody")
+          p(v-html="node.summary")
           div(v-for="img in node.images")
             img(:src="img.src")
 </template>
