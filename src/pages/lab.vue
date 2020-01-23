@@ -9,8 +9,8 @@
         p(v-html="lab.parsedBody")
         p {{lab.date}}
         h4 Participants
-        template(v-for="participants in lab.participants")
-          li {{participants}}
+        template(v-for="participant in participants")
+          li {{participant.name}}
         h4 Support
         template(v-for="supporter in lab.supported_by")
           li {{supporter}}
@@ -30,8 +30,7 @@ export default {
     return {
       loading: true,
       lab: null,
-      imgsLoaded: false,
-      imgs: null
+      participants: null
     }
   },
   methods: {
@@ -48,7 +47,12 @@ export default {
     this.lab.parsedBody = json.json_decode(this.lab.body)
     this.lab.supported_by = this.lab.supported_by.split(',')
     const resParticipants = await this.$store.dispatch('drupal/getLabParticipants', this.$route.params.nid)
-    console.log(resParticipants)
+    this.participants = resParticipants.data.nodes.map(participant => {
+      return {
+        ...participant.node
+      }
+    })
+    console.log(this.participants)
   }
 }
 </script>
