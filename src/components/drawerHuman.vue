@@ -17,7 +17,7 @@ export default {
   async mounted () {
     const res = await this.$store.dispatch('drupal/getLabs')
     this.nodes = res.data.list
-    let imgsMap = {}
+    // let imgsMap = {}
     // this.nodes.forEach(n => {
     //   n.field_images_2.forEach(async i => {
     //     const id = i.file.id
@@ -26,8 +26,8 @@ export default {
     //     imgsMap[id] = file
     //   })
     // })
-    console.log(imgsMap)
-    this.imgs = imgsMap
+    // console.log(imgsMap)
+    // this.imgs = imgsMap
   },
   methods: {
     loadImage: async function (id) {
