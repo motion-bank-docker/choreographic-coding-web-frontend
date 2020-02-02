@@ -20,19 +20,19 @@ export default {
     }
   },
   async mounted () {
-    const res = await this.$store.dispatch('drupal/getLabs')
-    this.nodes = res.data.list
-    let imgsMap = {}
-    this.nodes.forEach(n => {
-      n.field_images_2.forEach(async i => {
-        const id = i.file.id
-        const response = await this.$store.dispatch('drupal/getImgPath', id)
-        const file = response.data.files[0].file
-        imgsMap[id] = file
-      })
-    })
-    console.log(imgsMap)
-    this.imgs = imgsMap
+    // const res = await this.$store.dispatch('drupal/getLabs')
+    // this.nodes = res.data.nodes
+    // let imgsMap = {}
+    // this.nodes.forEach(n => {
+    //   n.field_images_2.forEach(async i => {
+    //     const id = i.file.id
+    //     const response = await this.$store.dispatch('drupal/getImgPath', id)
+    //     const file = response.data.files[0].file
+    //     imgsMap[id] = file
+    //   })
+    // })
+    // console.log(imgsMap)
+    // this.imgs = imgsMap
   },
   methods: {
     loadImage: async function (id) {
