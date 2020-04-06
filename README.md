@@ -1,6 +1,6 @@
 # choreographiccoding.org redesign
 
-[![CircleCI](https://circleci.com/gh/motionbank/choreographic-coding-web-frontend/tree/master.svg?style=svg)](https://circleci.com/gh/motionbank/choreographic-coding-web-frontend/tree/master)
+[![CircleCI](https://circleci.com/gh/motion-bank-docker/choreographic-coding-web-frontend/tree/master.svg?style=svg)](https://circleci.com/gh/motion-bank-docker/choreographic-coding-web-frontend/tree/master)
 
 ## Sitemap
 
